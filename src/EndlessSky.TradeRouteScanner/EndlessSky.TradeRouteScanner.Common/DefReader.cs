@@ -36,97 +36,192 @@ namespace EndlessSky.TradeRouteScanner.Common
         public const char CHAR_WHITESPACE_SPACE = ' ';
         public const char CHAR_COMMENT = '#';
         public const char CHAR_NEWLINE = '\n';
+        public const char CHAR_QUOTE_QUOTE = '"';
+        public const char CHAR_QUOTE_TILDE = '`';
 
+        
 
         public DefReader()
         {
 
         }
 
-        public DefNodeCollection LoadData(Stream dataStream)
+        public DefNode LoadDataFromFile(string filepath)
         {
-            var rootNodeCollection = new DefNodeCollection();
-            var streamReader = new StreamReader(dataStream, UTF8Encoding.UTF8);
-            uint currentLevel = 0;
-            uint rowLevel = 0; // Indentation level
+            var rootNode = new DefNode();
+            rootNode.Tokens.Add("FILE");
+            rootNode.Tokens.Add(filepath);
+
+            using (var stream = new FileStream(filepath, FileMode.Open))
+            {
+                return LoadData(stream, rootNode);
+            }
+        }
+
+        public DefNode LoadDataFromString(string s)
+        {
+            var rootNode = new DefNode();
+
+            var bytes = Encoding.UTF8.GetBytes(s);
+            var stream = new MemoryStream(bytes);
+            return LoadData(stream, rootNode);
+        }
+
+        public DefNode LoadData(Stream dataStream, DefNode rootNode)
+        {
+            var sr = new StreamReader(dataStream, UTF8Encoding.UTF8);
+
+            int indentLevel = 0; // Indentation level
             Stack<DefNode> nodeStack = new Stack<DefNode>();
-            DefNode currentNode;
+            Stack<int> indentStack = new Stack<int>();
             char c;
-            bool isQuoted = false;
-            char quoteChar = ' ';
-            StringBuilder tokenBuffer;
+
+            // Add the root node
+            nodeStack.Push(rootNode);
+            indentStack.Push(-1); // Start with -1 in it
 
             // At the root level
-            // Read through the characters, until there are none left
-            while (streamReader.Peek() >= 0)
+            // Read through the lines of characters, until there are none left
+            c = GetNextChar(sr);
+            while (sr.Peek() >= 0)
             {
-                c = (char)streamReader.Read();
+                indentLevel = 0; // Reset the indent level
 
                 // Read through spaces
-                if (c == CHAR_WHITESPACE_TAB)
+                while (c == CHAR_WHITESPACE_TAB)
                 {
-                    rowLevel++;
-                    continue; // Read next char
+                    indentLevel++;
+                    c = GetNextChar(sr); // keep reading
                 }
 
                 // Skip empty lines
                 if (c == CHAR_NEWLINE)
+                {
+                    c = GetNextChar(sr);
                     continue;
+                }
+                    
 
                 if (c == CHAR_COMMENT)
                 {
                     // Is a comment line. Read until new line.
-                    while (!streamReader.EndOfStream && streamReader.Read() != CHAR_NEWLINE)
+                    while (c != CHAR_NEWLINE)
                     {
                         // Read until newline
-                        continue;
+                        c = GetNextChar(sr);
                     }
+                    continue; // Start reading line again
                 }
 
                 // Is a valid line.
 
-                var newNode = new DefNode();
-
-                // Read the line
-                while (c != CHAR_NEWLINE)
+                // Determine where in the node tree we are inserting this node, based on
+                // whether it has more indentation that the previous node, less, or the same.
+                // If the previous line's indentation level is equal or greater this row's indentation level,
+                // then this row is not a child of the previous row. Keep going backwards in the stack until the same
+                // indentation level is met.
+                while (indentStack.Peek() >= indentLevel)
                 {
-                    tokenBuffer = new StringBuilder();
+                    indentStack.Pop();
+                    nodeStack.Pop();
+                }
 
-                    // If it's the start of a quotation, note that down and read the next character
-                    if (!isQuoted && c == '"' || c == '`')
-                    {
-                        isQuoted = true;
-                        quoteChar = c;
-                        c = (char)streamReader.Read();
-                        continue;
-                    }
+                // Ready to read this node
+                DefNode parent = nodeStack.Peek(); // Because the root node should be in there, there should ALWAYS be something in there
 
-                    // If it's the end of the token,
-                    // save this token and get ready to read another.
-                    if (c == ' ' && !isQuoted)
-                    {
-                        newNode.Tokens.Add(tokenBuffer.ToString());
-                        tokenBuffer = new StringBuilder();
-                        c = (char)streamReader.Read();
-                        continue;
-                    }
+                var newNode = ReadLine(sr, c);
+                parent.ChildNodes.Add(newNode);
 
-                    // If it's the end of the quotation
-                    if (isQuoted && c == quoteChar)
-                    {
-                        newNode.Tokens.Add(tokenBuffer.ToString());
-                        tokenBuffer = new StringBuilder();
-                        c = (char)streamReader.Read();
-                        continue;
-                    }
+                // Remember where we are
+                indentStack.Push(indentLevel);
+                nodeStack.Push(newNode);
+            }
 
+            // Done reading
+            return rootNode;
+        }
 
-                    if (!isQuoted)
+        private DefNode ReadLine(StreamReader sr, char currentChar)
+        {
+            // Read tokens, each separated by a space or wrapped in quotes, until an "end of line" char
+            var newDefNode = new DefNode();
+            char quoteChar = Char.MinValue;
+            bool firstLoop = true;
+            StringBuilder tokenBuffer;
 
-                    // Read the next char
-                    c = (char)streamReader.Read();
+            // Loop for each token, or until the stream runs out
+            while (sr.Peek() >= 0)
+            {
+                char c;
+                if (!firstLoop)
+                    c = GetNextChar(sr);
+                else
+                {
+                    // Use the current character on the first loop, don't skip it
+                    c = currentChar;
+                    firstLoop = false;
+                }
+
+                // Reset some things
+                quoteChar = Char.MinValue;
+                tokenBuffer = new StringBuilder();
+
+                // If the next character is a whitespace, end of line
+                if (c == CHAR_NEWLINE)
+                {
+                    return newDefNode;
+                }
+
+                // Wait for the next non-whitespace character
+                if (Char.IsWhiteSpace(c))
+                {
+                    // Don't care, next char
+                    continue;
+                }
+
+                // If there's a comment, do nothing
+                if (c == CHAR_COMMENT)
+                {
+                    return newDefNode;
+                }
+
+                // Read the token
+
+                // If the token starts with a quotation, remember what quotation was used, and ignore this character
+                if (c == CHAR_QUOTE_QUOTE || c == CHAR_QUOTE_TILDE)
+                {
+                    quoteChar = c; // Remember what quote character was used
+
+                    // ADvance a character
+                    c = GetNextChar(sr);
+                }
+
+                // Read until the end of line, or an unquoted space, or the end of the quotation
+                while (c != CHAR_NEWLINE && ((quoteChar != Char.MinValue && c != quoteChar) || (quoteChar == Char.MinValue && c != ' ')))
+                {
+                    tokenBuffer.Append(c);
+                    c = GetNextChar(sr);
+                }
+
+                // Made it out here, end of token
+
+                if (tokenBuffer.Length > 0)
+                    newDefNode.Tokens.Add(tokenBuffer.ToString());
+
+                // Warn about unterminated quote
+                if (quoteChar != Char.MinValue && c == CHAR_NEWLINE)
+                {
+                    // warn
                 }
             }
+
+            return newDefNode;
+        }
+
+        private char GetNextChar(StreamReader sr)
+        {
+            if (sr.EndOfStream) return '\n'; // For compatibility. End any lines gracefully
+            else return (char)sr.Read(); ;
         }
     }
 }
