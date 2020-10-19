@@ -19,20 +19,23 @@ namespace EndlessSky.TradeRouteScanner.Common.Test
 
             var result = new DefReader().LoadDataFromString(sampleData);
 
-            var expectedResult = new DefNode();
-            var topNode = new DefNode();
-            topNode.Tokens = new DefTokenCollection().Add("level1").Add("t1").Add("t2").Add("t3");
-            topNode.ChildNodes.Add(new DefNode()
+            var expectedRootNode = new DefNode();
+            var l1node = new DefNode();
+            l1node.Tokens = new DefTokenCollection().Add("level1").Add("t1").Add("t2").Add("t3");
+            l1node.ChildNodes.Add(new DefNode()
             {
                 Tokens = new DefTokenCollection().Add("level2").Add("t1").Add("t2").Add("t3")
             });
-            topNode.ChildNodes.Add(new DefNode()
+            l1node.ChildNodes.Add(new DefNode()
             {
                 Tokens = new DefTokenCollection().Add("level2").Add("t1").Add("t2").Add("t3")
             });
-            expectedResult.ChildNodes.Add(topNode);
+            expectedRootNode.ChildNodes.Add(l1node);
 
-            Assert.AreEqual(TestUtils.BinarySerialize(expectedResult), TestUtils.BinarySerialize(result));
+            var expectedResult = TestUtils.JsonSerialize(expectedRootNode);
+            var actualResult = TestUtils.JsonSerialize(result);
+
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
@@ -40,24 +43,22 @@ namespace EndlessSky.TradeRouteScanner.Common.Test
         {
             var sampleData = string.Format("{0}\n{1}\n\t{2}\n\t{3}",
                 "#This is a comment",
-                "level1 t1 t2 #this is another comment",
+                "node1 t1 t2 #this is another comment",
                 "#this is yet another comment",
-                "level2 t1 t2"
+                "node2 t1 t2"
                 );
 
             var result = new DefReader().LoadDataFromString(sampleData);
 
             var expectedResult = new DefNode();
-            expectedResult.ChildNodes.Add(new DefNode()
-            {
-                Tokens = new DefTokenCollection().Add("level1").Add("t1").Add("t2")
-            });
-            expectedResult.ChildNodes.Add(new DefNode()
-            {
-                Tokens = new DefTokenCollection().Add("level2").Add("t1").Add("t2")
-            });
+            var node1 = new DefNode();
+            node1.Tokens.Add("node1").Add("t1").Add("t2");
+            expectedResult.ChildNodes.Add(node1);
+            var node2 = new DefNode();
+            node2.Tokens.Add("node2").Add("t1").Add("t2");
+            node1.ChildNodes.Add(node2);
 
-            Assert.AreEqual(TestUtils.BinarySerialize(expectedResult), TestUtils.BinarySerialize(result));
+            Assert.AreEqual(TestUtils.JsonSerialize(expectedResult), TestUtils.JsonSerialize(result));
         }
     }
 }
