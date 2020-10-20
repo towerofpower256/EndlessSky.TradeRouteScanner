@@ -6,12 +6,18 @@ namespace EndlessSky.TradeRouteScanner.Common.Models
 {
     public class RouteScannerRun
     {
-        public string StartSystem { get; set; }
+        public string StartSystemName { get; set; }
 
-        public string EndSystem { get; set; }
+        public TradeMapSystem StartSystem { get; set; }
+
+        public string EndSystemName { get; set; }
+
+        public TradeMapSystem EndSystem { get; set; }
 
         public string Comodity { get; set; }
 
-        public int Value { get; set; }
+        public int Profit { get; set; }
+
+        public int Jumps { get; set; }
     }
 }

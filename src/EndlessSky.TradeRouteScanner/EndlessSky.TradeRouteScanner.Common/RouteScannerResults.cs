@@ -8,6 +8,6 @@ namespace EndlessSky.TradeRouteScanner.Common
 {
     public class RouteScannerResults
     {
-        public Collection<RouteScannerRun> AllRuns { get; set; } = new Collection<RouteScannerRun>();
+        public RouteScannerRunCollection AllRuns { get; set; } = new RouteScannerRunCollection();
     }
 }

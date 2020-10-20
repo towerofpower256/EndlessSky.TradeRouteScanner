@@ -13,6 +13,8 @@ namespace EndlessSky.TradeRouteScanner.Common.Models
 
         public List<TradeMapComodity> Comodities { get; set; } = new List<TradeMapComodity>();
 
+        public RouteScannerRunCollection Runs { get; set; } = new RouteScannerRunCollection();
+
         public override string ToString()
         {
             return this.Name;

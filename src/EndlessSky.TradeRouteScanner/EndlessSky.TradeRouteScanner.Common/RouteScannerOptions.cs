@@ -6,8 +6,12 @@ namespace EndlessSky.TradeRouteScanner.Common
 {
     public class RouteScannerOptions
     {
-        public int MaxJumps { get; set; } = 3; // Max jumps from the start system
+        public int RunMaxJumps { get; set; } = 3; // Max jumps from the start system
 
-        public int MinProfitPerUnit { get; set; } = 100; // Min 100 credits per unit per trade
+        public int RouteMaxStops { get; set; } = 5; // Max number of stops a route can have
+
+        public int MinProfitPerUnit { get; set; } = 150; // Min credits per unit per trade
+
+        public int MinProfitPerRouteRun { get; set; } = 150; // The route's profit must be (number of runs x min profit per route run) minimum
     }
 }
