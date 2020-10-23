@@ -19,5 +19,10 @@ namespace EndlessSky.TradeRouteScanner.Common.Models
         public int Profit { get; set; }
 
         public int Jumps { get; set; }
+
+        public override string ToString()
+        {
+            return $"{StartSystemName} -> {EndSystemName}, {Comodity} ${Profit}";
+        }
     }
 }

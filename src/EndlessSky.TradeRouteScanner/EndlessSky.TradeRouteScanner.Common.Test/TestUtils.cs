@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EndlessSky.TradeRouteScanner.Common.Logging;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -9,6 +10,11 @@ namespace EndlessSky.TradeRouteScanner.Common.Test
 {
     public static class TestUtils
     {
+        public static ILogger GetTraceLogger()
+        {
+            return new TraceLogger();
+        }
+
         public static string JsonSerialize(object obj)
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(obj);

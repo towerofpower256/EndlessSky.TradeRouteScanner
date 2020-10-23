@@ -9,5 +9,7 @@ namespace EndlessSky.TradeRouteScanner.Common
     public class RouteScannerResults
     {
         public RouteScannerRunCollection AllRuns { get; set; } = new RouteScannerRunCollection();
+
+        public RouteScannerRouteCollection AllRoutes { get; set; } = new RouteScannerRouteCollection();
     }
 }

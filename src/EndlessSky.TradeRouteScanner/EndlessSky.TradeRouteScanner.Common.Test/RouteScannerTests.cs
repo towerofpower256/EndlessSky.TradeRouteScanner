@@ -14,7 +14,10 @@ namespace EndlessSky.TradeRouteScanner.Common.Test
             var sampleDataStream = TestUtils.LoadResourceStream("TestData.MapBuilder_FullMapRead.txt");
             var dataRoot = new DefReader().LoadDataFromStream(sampleDataStream);
             var mapResult = new TradeMapBuilder().Build(dataRoot);
-            var scanResult = new RouteScanner().Scan(mapResult);
+
+            var routeScanner = new RouteScanner();
+            routeScanner.SetLogging(TestUtils.GetTraceLogger());
+            var scanResult = routeScanner.Scan(mapResult);
         }
     }
 }
