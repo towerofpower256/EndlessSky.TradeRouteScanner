@@ -185,8 +185,22 @@ namespace EndlessSky.TradeRouteScanner.Common
                 {
                     _log.Debug("tradeRunQueue empty for this step, going back a level");
                     tradeRunQueueStack.Pop();
-                    tradeRunStack.Pop();
-                    continue;
+
+                    if (tradeRunStack.Count > 0 && tradeRunQueueStack.Count == 1)
+                    {
+                        var lol = "wut";
+                    }
+
+                    if (tradeRunStack.Count > 0)
+                    {
+                        tradeRunStack.Pop();
+                        continue;
+                    }
+                    else
+                    {
+                        // Hit the end, finished processing this start system
+                        return;
+                    }
                 } 
                 else
                 {
@@ -210,20 +224,29 @@ namespace EndlessSky.TradeRouteScanner.Common
                     // Save it as a route
                     if (thisRun.EndSystem.Name == startSystem.Name)
                     {
-                        _log.Info("Route ends back at start, this is a complete route");
+                        _log.Debug("Route ends back at start, this is a complete route");
 
                         var newTradeRoute = new RouteScannerRoute();
-                        foreach (var run in tradeRunStack.ToArray())
+                        foreach (var run in tradeRunStack.ToArray().Reverse())
                         {
+                            newTradeRoute.StartSystem = startSystem;
                             newTradeRoute.Runs.Add(run);
-                            newTradeRoute.TotalProfit += run.Profit;
+                        }
+                        newTradeRoute.Update();
+
+                        if (newTradeRoute.Score < options.MinRouteScore)
+                        {
+                            _log.Debug($"Skipping route, score {newTradeRoute.Score} min {options.MinRouteScore}");
+                        } 
+                        else
+                        {
+                            _log.Debug("Saving route");
+                            //for (var iRun = 0; iRun < newTradeRoute.Runs.Count; iRun++) { _log.Info($"{iRun}: {newTradeRoute.Runs[iRun]}"); }
+                            routeCollection.Add(newTradeRoute);
                         }
 
-                        _log.Debug("Saving route");
-                        routeCollection.Add(newTradeRoute);
-
                         // Don't try to walk further than this.
-                        tradeRunQueueStack.Pop();
+                        //tradeRunQueueStack.Pop();
                         tradeRunStack.Pop();
                         continue;
                     }
@@ -245,11 +268,13 @@ namespace EndlessSky.TradeRouteScanner.Common
                         {
                             _log.Debug("This system doesn't have any runs, nothing enqueued");
                             tradeRunStack.Pop();
+                            continue;
                         }
                     } 
                     else
                     {
                         _log.Debug($"Stop limit {options.RouteMaxStops} has been met, not looking any deeper");
+                        tradeRunStack.Pop();
                     }
                 }
             } // End of worker loop

@@ -59,6 +59,7 @@ namespace EndlessSky.TradeRouteScanner.Common
                         }
                     }
 
+                    newSystem.Name = newSystem.Name.Trim();
                     map.Systems.Add(newSystem);
                 }
                 else

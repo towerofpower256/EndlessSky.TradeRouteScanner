@@ -11,7 +11,7 @@ namespace EndlessSky.TradeRouteScanner.Common.Test
         [TestMethod]
         public void FullScan()
         {
-            var sampleDataStream = TestUtils.LoadResourceStream("TestData.MapBuilder_FullMapRead.txt");
+            var sampleDataStream = TestUtils.LoadResourceStream("TestData.MapBuilder_PartialMapRead.txt");
             var dataRoot = new DefReader().LoadDataFromStream(sampleDataStream);
             var mapResult = new TradeMapBuilder().Build(dataRoot);
 

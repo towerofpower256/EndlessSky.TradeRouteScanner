@@ -1,0 +1,4650 @@
+﻿# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+galaxy "Milky Way"
+	pos 0 0
+	sprite ui/galaxy
+
+galaxy "pug empty galaxy"
+	pos 10000 7000
+	sprite ui/pleiades
+
+galaxy "label core"
+	pos -136 130
+	sprite label/core
+
+galaxy "label deep"
+	pos -658 -300
+	sprite label/deep
+
+galaxy "label dirt belt"
+	pos -515 260
+	sprite "label/dirt belt"
+
+galaxy "label earth"
+	pos -420 94
+	sprite label/earth
+
+galaxy "label north"
+	pos -324 -332
+	sprite label/north
+
+galaxy "label paradise"
+	pos -345 -136
+	sprite label/paradise
+
+galaxy "label rim"
+	pos -778 265
+	sprite label/rim
+
+galaxy "label south"
+	pos -566 501
+	sprite label/south
+
+galaxy "label wanderers"
+	pos -145 -753
+
+galaxy "label hai"
+	pos -74 -497
+
+galaxy "label korath"
+	pos 165 -347
+
+galaxy "label saryds"
+	pos -1080 678
+
+galaxy "label kimek"
+	pos -1250 215
+
+galaxy "label arachi"
+	pos -750 615
+
+galaxy "label waste"
+	pos 80 315
+
+galaxy "label graveyard"
+	pos 45 590
+
+system "1 Axis"
+	pos -1274.63 267.214
+	government Coalition
+	habitable 745.92
+	belt 1112
+	link "Sol Kimek"
+	link "4 Winter Rising"
+	link "4 Spring Rising"
+	link "3 Axis"
+	asteroids "small rock" 8 3.3166
+	asteroids "medium rock" 11 3.4454
+	asteroids "large rock" 1 3.1556
+	asteroids "small metal" 1 3.381
+	asteroids "medium metal" 149 4.347
+	asteroids "large metal" 11 3.9606
+	minables lead 11 6.87213
+	minables silicon 35 6.68659
+	minables tungsten 2 5.45307
+	trade Clothing 251
+	trade Electronics 831
+	trade Equipment 469
+	trade Food 231
+	trade "Heavy Metals" 1241
+	trade Industrial 767
+	trade "Luxury Goods" 1135
+	trade Medical 777
+	trade Metal 520
+	trade Plastic 384
+	fleet "Small Arach" 700
+	fleet "Large Arach" 1500
+	fleet "Small Kimek" 300
+	fleet "Large Kimek" 400
+	fleet "Small Saryd" 900
+	fleet "Large Saryd" 1800
+	fleet Heliarch 450
+	object
+		sprite star/k5
+		distance 49.335
+		period 18.0618
+		offset 180
+	object
+		sprite star/m0
+		distance 65.665
+		period 18.0618
+	object
+		sprite planet/rock12-b
+		distance 298.105
+		period 75.382
+	object
+		sprite planet/cloud4-b
+		distance 728.595
+		period 288.034
+	object "Celestial Third"
+		sprite planet/ice4
+		distance 951.355
+		period 429.762
+	object
+		sprite planet/gas9-b
+		distance 1811.79
+		period 1129.48
+		object
+			sprite planet/lava0
+			distance 229
+			period 12.994
+		object
+			sprite planet/dust1
+			distance 394
+			period 29.3248
+		object
+			sprite planet/dust5
+			distance 565
+			period 50.3574
+		object
+			sprite planet/ice8
+			distance 684
+			period 67.0771
+
+system "10 Pole"
+	pos -1356.63 19.2137
+	government Coalition
+	habitable 486.68
+	belt 1765
+	haze _menu/haze-67
+	link "16 Autumn Rising"
+	asteroids "small rock" 30 10.7996
+	asteroids "medium rock" 42 8.4448
+	asteroids "large rock" 2 8.12
+	asteroids "medium metal" 9 11.368
+	asteroids "large metal" 2 4.7096
+	minables neodymium 9 17.5036
+	minables silicon 17 18.2422
+	trade Clothing 335
+	trade Electronics 832
+	trade Equipment 444
+	trade Food 122
+	trade "Heavy Metals" 1228
+	trade Industrial 806
+	trade "Luxury Goods" 1009
+	trade Medical 710
+	trade Metal 300
+	trade Plastic 342
+	fleet "Small Arach" 1800
+	fleet "Large Arach" 8000
+	fleet "Small Kimek" 600
+	fleet "Large Kimek" 1600
+	fleet "Small Saryd" 1200
+	fleet "Large Saryd" 5000
+	fleet Heliarch 700
+	object
+		sprite star/k0
+		period 10
+	object
+		sprite planet/ice2
+		distance 158.89
+		period 36.3148
+	object "Second Rose"
+		sprite planet/cloud4
+		distance 483.25
+		period 192.618
+		object
+			sprite planet/rock17
+			distance 152
+			period 17.6262
+	object
+		sprite planet/lava2-b
+		distance 1069.5
+		period 634.175
+	object
+		sprite planet/gas16
+		distance 1649.46
+		period 1214.65
+	object
+		sprite planet/gas8-b
+		distance 2382.55
+		period 2108.63
+		object
+			sprite planet/rhea
+			distance 230
+			period 18.5682
+		object
+			sprite planet/dust3
+			distance 335
+			period 32.6395
+		object
+			sprite planet/ice0
+			distance 490
+			period 57.7392
+
+system "11 Autumn Above"
+	pos -1278.63 148.214
+	government Coalition
+	habitable 1566.68
+	belt 1099
+	haze _menu/haze-133
+	link "16 Autumn Rising"
+	link "Sol Kimek"
+	link "7 Autumn Rising"
+	asteroids "small rock" 1 4.1454
+	asteroids "medium rock" 28 3.2928
+	asteroids "large rock" 51 2.058
+	asteroids "small metal" 5 2.8812
+	asteroids "medium metal" 108 1.8816
+	asteroids "large metal" 8 2.793
+	minables gold 17 3.14953
+	minables titanium 46 3.06136
+	minables tungsten 8 3.33616
+	trade Clothing 202
+	trade Electronics 723
+	trade Equipment 518
+	trade Food 202
+	trade "Heavy Metals" 1084
+	trade Industrial 803
+	trade "Luxury Goods" 1132
+	trade Medical 608
+	trade Metal 328
+	trade Plastic 323
+	fleet "Small Arach" 800
+	fleet "Large Arach" 1800
+	fleet "Small Kimek" 300
+	fleet "Large Kimek" 500
+	fleet "Small Saryd" 900
+	fleet "Large Saryd" 2000
+	fleet Heliarch 400
+	object
+		sprite star/g0
+		distance 40.3837
+		period 14.9791
+	object
+		sprite star/k0
+		distance 89.6163
+		period 14.9791
+		offset 180
+	object
+		sprite planet/gas10-hot
+		distance 536.616
+		period 125.622
+		object
+			sprite planet/ice8
+			distance 223
+			period 13.3098
+		object
+			sprite planet/dust0-b
+			distance 310
+			period 21.8151
+	object
+		sprite planet/rock12-b
+		distance 1117.31
+		period 377.423
+		object
+			sprite planet/rock3-b
+			distance 154
+			period 19.9116
+	object
+		sprite planet/gas12
+		distance 2339.35
+		period 1143.44
+		object
+			sprite planet/europa-b
+			distance 276
+			period 12.0434
+		object
+			sprite planet/rock14
+			distance 419
+			period 22.5271
+		object
+			sprite planet/dust7
+			distance 536
+			period 32.5936
+
+system "11 Spring Below"
+	pos -1272.63 380.214
+	government Coalition
+	habitable 912.6
+	belt 1932
+	link "4 Spring Rising"
+	link "3 Axis"
+	link "5 Spring Below"
+	asteroids "small rock" 36 3.808
+	asteroids "medium rock" 86 4.004
+	asteroids "large rock" 25 2.8
+	asteroids "small metal" 21 1.96
+	asteroids "medium metal" 41 3.696
+	asteroids "large metal" 13 2.128
+	minables silicon 5 6.88994
+	minables tungsten 32 6.67204
+	trade Clothing 291
+	trade Electronics 710
+	trade Equipment 493
+	trade Food 420
+	trade "Heavy Metals" 1205
+	trade Industrial 736
+	trade "Luxury Goods" 1212
+	trade Medical 801
+	trade Metal 549
+	trade Plastic 486
+	fleet "Small Arach" 1800
+	fleet "Large Arach" 3000
+	fleet "Small Kimek" 400
+	fleet "Large Kimek" 900
+	fleet "Small Saryd" 1200
+	fleet "Large Saryd" 3000
+	fleet Heliarch 500
+	object
+		sprite star/k0
+		distance 47.6045
+		period 13.6402
+		offset 180
+	object
+		sprite star/k5
+		distance 54.3955
+		period 13.6402
+	object
+		sprite planet/rock16-b
+		distance 318.396
+		period 75.2264
+		object
+			sprite planet/tethys-b
+			distance 115
+			period 16.8311
+	object
+		sprite planet/dust7-b
+		distance 583.206
+		period 186.489
+	object "Third Umber"
+		sprite planet/rock4
+		distance 1145.97
+		period 513.662
+		object
+			sprite planet/oberon-b
+			distance 145
+			period 15.8958
+	object
+		sprite planet/gas3-b
+		distance 2916.97
+		period 2086.01
+		object
+			sprite planet/rhea
+			distance 274
+			period 11.5849
+		object
+			sprite planet/dust3
+			distance 429
+			period 22.6961
+		object
+			sprite planet/dust5-b
+			distance 540
+			period 32.052
+
+system "12 Autumn Above"
+	pos -1276.63 -19.7863
+	government Coalition
+	habitable 1050.92
+	belt 1283
+	link "14 Pole"
+	link "16 Autumn Rising"
+	asteroids "small rock" 23 1.92
+	asteroids "medium rock" 40 1.59
+	asteroids "large rock" 2 4.26
+	asteroids "small metal" 2 3.03
+	asteroids "medium metal" 36 1.59
+	asteroids "large metal" 6 2.76
+	minables iron 1 2.03452
+	minables lead 1 2.88219
+	minables platinum 4 3.18455
+	trade Clothing 314
+	trade Electronics 824
+	trade Equipment 403
+	trade Food 266
+	trade "Heavy Metals" 1152
+	trade Industrial 691
+	trade "Luxury Goods" 964
+	trade Medical 746
+	trade Metal 314
+	trade Plastic 271
+	fleet "Small Arach" 2500
+	fleet "Large Arach" 8000
+	fleet "Small Kimek" 700
+	fleet "Large Kimek" 2400
+	fleet "Small Saryd" 1300
+	fleet "Large Saryd" 7000
+	fleet Heliarch 800
+	object
+		sprite star/g5
+		distance 49.4445
+		period 16.627
+		offset 180
+	object
+		sprite star/k5
+		distance 72.5555
+		period 16.627
+	object
+		sprite planet/lava2-b
+		distance 256.965
+		period 50.8262
+	object
+		sprite planet/mars-b
+		distance 428.975
+		period 109.629
+	object
+		sprite planet/ganymede-b
+		distance 603.065
+		period 182.735
+	object
+		sprite planet/gas17
+		distance 1074.32
+		period 434.483
+		object
+			sprite planet/europa-b
+			distance 207
+			period 12.7242
+		object
+			sprite planet/dust0-b
+			distance 335
+			period 26.1963
+	object
+		sprite planet/gas13-b
+		distance 2145.85
+		period 1226.52
+		offset 159.403
+		object "Station Cian"
+			sprite planet/station3c
+			distance 392.805
+			period 251.263
+			offset 170.143
+	object
+		sprite planet/gas3-b
+		distance 8021.02
+		period 8863.78
+		object
+			sprite planet/rock7-b
+			distance 294
+			period 12.8761
+		object
+			sprite planet/ice7
+			distance 390
+			period 19.6726
+		object
+			sprite planet/rock17-b
+			distance 492
+			period 27.8748
+
+system "14 Pole"
+	pos -1343.63 -119.786
+	government Coalition
+	habitable 625
+	belt 1881
+	haze _menu/haze-67
+	link "12 Autumn Above"
+	asteroids "small rock" 44 3.904
+	asteroids "medium rock" 6 4.48
+	asteroids "large rock" 8 3.84
+	asteroids "medium metal" 122 3.872
+	asteroids "large metal" 1 4.672
+	minables silicon 6 4.99492
+	minables tungsten 13 4.66751
+	minables uranium 11 5.28952
+	trade Clothing 309
+	trade Electronics 827
+	trade Equipment 381
+	trade Food 325
+	trade "Heavy Metals" 1167
+	trade Industrial 644
+	trade "Luxury Goods" 942
+	trade Medical 759
+	trade Metal 357
+	trade Plastic 258
+	fleet "Small Arach" 3000
+	fleet "Large Arach" 9000
+	fleet "Small Kimek" 800
+	fleet "Large Kimek" 3000
+	fleet "Small Saryd" 1600
+	fleet "Large Saryd" 9000
+	fleet Heliarch 1200
+	object
+		sprite star/g5
+		period 10
+	object
+		sprite planet/desert2
+		distance 187.36
+		period 41.0332
+	object
+		sprite planet/lava4
+		distance 420.45
+		period 137.94
+	object "Remote Blue"
+		sprite planet/earth
+		distance 658.54
+		period 270.392
+	object
+		sprite planet/neptune
+		distance 1097.38
+		period 581.642
+		object
+			sprite planet/dust7-b
+			distance 214
+			period 15.5974
+	object
+		sprite planet/gas1
+		distance 2169.47
+		period 1616.78
+
+system "14 Summer Above"
+	pos -1436.63 182.214
+	government Coalition
+	habitable 1400
+	belt 1093
+	haze _menu/haze-67
+	link "3 Pole"
+	link "4 Summer Rising"
+	asteroids "small rock" 2 3.016
+	asteroids "medium rock" 1 3.406
+	asteroids "large rock" 4 3.9
+	asteroids "small metal" 4 2.106
+	asteroids "medium metal" 86 2.054
+	asteroids "large metal" 2 2.834
+	trade Clothing 252
+	trade Electronics 861
+	trade Equipment 361
+	trade Food 174
+	trade "Heavy Metals" 1187
+	trade Industrial 853
+	trade "Luxury Goods" 998
+	trade Medical 528
+	trade Metal 284
+	trade Plastic 350
+	fleet "Small Arach" 1000
+	fleet "Large Arach" 4000
+	fleet "Small Kimek" 500
+	fleet "Large Kimek" 1100
+	fleet "Small Saryd" 1300
+	fleet "Large Saryd" 4000
+	fleet Heliarch 1200
+	object
+		sprite star/g0
+		distance 20.8
+		period 9.28022
+		offset 180
+	object
+		sprite star/m0
+		distance 70.2
+		period 9.28022
+	object
+		sprite planet/gas4-b
+		distance 605.45
+		period 159.262
+		object
+			sprite planet/rock7
+			distance 251
+			period 14.0252
+		object
+			sprite planet/ice7-b
+			distance 388
+			period 26.9553
+	object "Second Viridian"
+		sprite planet/forest5-b
+		distance 1256.26
+		period 476.009
+	object
+		sprite planet/rock0-b
+		distance 1431.1
+		period 578.763
+	object
+		sprite planet/gas8
+		distance 2256.26
+		period 1145.72
+
+system "14 Winter Below"
+	pos -1143.63 341.214
+	government Coalition
+	habitable 1111.68
+	belt 1173
+	link "8 Winter Below"
+	link "Ki War Ek"
+	link "4 Axis"
+	asteroids "small rock" 27 6.0912
+	asteroids "medium rock" 2 2.7648
+	asteroids "large rock" 21 5.8752
+	asteroids "small metal" 5 3.9744
+	asteroids "medium metal" 3 5.5728
+	asteroids "large metal" 3 2.2896
+	minables neodymium 6 6.79025
+	minables titanium 9 8.6162
+	trade Clothing 310
+	trade Electronics 787
+	trade Equipment 658
+	trade Food 517
+	trade "Heavy Metals" 1016
+	trade Industrial 855
+	trade "Luxury Goods" 1175
+	trade Medical 876
+	trade Metal 445
+	trade Plastic 391
+	fleet "Small Arach" 800
+	fleet "Large Arach" 1200
+	fleet "Small Kimek" 400
+	fleet "Large Kimek" 500
+	fleet "Small Saryd" 1000
+	fleet "Large Saryd" 1800
+	fleet Heliarch 200
+	object
+		sprite star/g5
+		distance 45.0921
+		period 12.5408
+		offset 180
+	object
+		sprite star/k0
+		distance 57.9079
+		period 12.5408
+	object
+		sprite planet/dust1
+		distance 173.548
+		period 27.4283
+	object
+		sprite planet/ice4
+		distance 504.388
+		period 135.899
+	object "Midway Emerald"
+		sprite planet/forest1-b
+		distance 917.748
+		period 333.546
+	object
+		sprite planet/gas4
+		distance 1422.56
+		period 643.687
+	object
+		sprite planet/gas8
+		distance 1838.32
+		period 945.586
+	object
+		sprite planet/gas5-b
+		distance 2600.32
+		period 1590.78
+		object
+			sprite planet/desert4-b
+			distance 236
+			period 12.0563
+		object
+			sprite planet/rock3
+			distance 346
+			period 21.4023
+
+system "16 Autumn Rising"
+	pos -1305.63 74.2137
+	government Coalition
+	habitable 1715
+	belt 1424
+	link "12 Autumn Above"
+	link "5 Summer Above"
+	link "11 Autumn Above"
+	link "3 Pole"
+	link "10 Pole"
+	asteroids "medium rock" 6 3.4138
+	asteroids "large rock" 8 2.2984
+	asteroids "small metal" 1 4.6644
+	asteroids "medium metal" 15 4.4616
+	asteroids "large metal" 3 2.3322
+	minables silicon 2 4.30865
+	trade Clothing 286
+	trade Electronics 818
+	trade Equipment 464
+	trade Food 162
+	trade "Heavy Metals" 1146
+	trade Industrial 771
+	trade "Luxury Goods" 1025
+	trade Medical 677
+	trade Metal 278
+	trade Plastic 311
+	fleet "Small Arach" 1400
+	fleet "Large Arach" 7000
+	fleet "Small Kimek" 500
+	fleet "Large Kimek" 1200
+	fleet "Small Saryd" 1100
+	fleet "Large Saryd" 4000
+	fleet Heliarch 500
+	object
+		sprite star/f5
+		period 10
+	object
+		sprite planet/rhea-b
+		distance 155.04
+		period 18.6463
+	object
+		sprite planet/cloud8-b
+		distance 494.88
+		period 106.335
+		object
+			sprite planet/io
+			distance 159
+			period 24.2278
+	object
+		sprite planet/gas6-b
+		distance 1700.84
+		period 677.522
+		object
+			sprite planet/ice8-b
+			distance 285
+			period 12.2894
+		object
+			sprite planet/rock17-b
+			distance 373
+			period 18.4004
+		object
+			sprite planet/miranda-b
+			distance 501
+			period 28.6432
+		object
+			sprite planet/dust0-b
+			distance 587
+			period 36.3264
+
+system "3 Axis"
+	pos -1235.63 299.214
+	government Coalition
+	habitable 2372.76
+	belt 1202
+	link "1 Axis"
+	link "8 Winter Below"
+	link "4 Winter Rising"
+	link "4 Axis"
+	link "11 Spring Below"
+	asteroids "small rock" 1 2.1945
+	asteroids "medium rock" 39 1.8645
+	asteroids "large rock" 10 1.1715
+	asteroids "small metal" 12 2.4585
+	asteroids "medium metal" 5 0.99
+	asteroids "large metal" 4 1.98
+	minables silicon 20 2.91457
+	minables tungsten 5 3.38084
+	trade Clothing 256
+	trade Electronics 772
+	trade Equipment 541
+	trade Food 352
+	trade "Heavy Metals" 1192
+	trade Industrial 774
+	trade "Luxury Goods" 1250
+	trade Medical 815
+	trade Metal 510
+	trade Plastic 396
+	fleet "Small Arach" 600
+	fleet "Large Arach" 1200
+	fleet "Small Kimek" 200
+	fleet "Large Kimek" 300
+	fleet "Small Saryd" 800
+	fleet "Large Saryd" 1600
+	fleet Heliarch 350
+	object
+		sprite star/f0
+		period 10
+	object
+		sprite planet/desert2-b
+		distance 176.76
+		period 19.2979
+	object
+		sprite planet/dust6-b
+		distance 424.05
+		period 71.7065
+	object
+		sprite planet/rock3-b
+		distance 719.34
+		period 158.429
+	object
+		sprite planet/ice0
+		distance 1340.63
+		period 403.085
+	object
+		sprite planet/gas6
+		distance 2384.92
+		period 956.409
+		object "Ashy Reach"
+			sprite planet/rock14
+			distance 313
+			period 14.1443
+		object
+			sprite planet/rock7
+			distance 410
+			period 21.2051
+
+system "3 Pole"
+	pos -1344.63 162.214
+	government Coalition
+	habitable 625
+	belt 1617
+	link "16 Autumn Rising"
+	link "5 Summer Above"
+	link "14 Summer Above"
+	link "4 Summer Rising"
+	link "Sol Kimek"
+	asteroids "small rock" 1 1.7864
+	asteroids "medium rock" 1 4.5584
+	asteroids "large rock" 18 2.31
+	asteroids "small metal" 100 3.1416
+	asteroids "medium metal" 16 1.7864
+	asteroids "large metal" 19 4.466
+	minables lead 2 5.80948
+	minables silicon 42 5.08343
+	trade Clothing 240
+	trade Electronics 847
+	trade Equipment 426
+	trade Food 145
+	trade "Heavy Metals" 1146
+	trade Industrial 776
+	trade "Luxury Goods" 1036
+	trade Medical 610
+	trade Metal 326
+	trade Plastic 296
+	fleet "Small Arach" 900
+	fleet "Large Arach" 2200
+	fleet "Small Kimek" 300
+	fleet "Large Kimek" 400
+	fleet "Small Saryd" 1000
+	fleet "Large Saryd" 2000
+	fleet Heliarch 600
+	object
+		sprite star/g5
+		period 10
+	object
+		sprite planet/rock11-b
+		distance 145.21
+		period 27.9972
+	object "Brass Second"
+		sprite planet/forest6
+		distance 541.22
+		period 201.456
+	object
+		sprite planet/jupiter
+		distance 955.31
+		period 472.429
+		object
+			sprite planet/miranda
+			distance 262
+			period 13.3264
+	object
+		sprite planet/tethys-b
+		distance 2014.75
+		period 1446.94
+
+system "3 Spring Rising"
+	pos -1414.63 356.214
+	government Coalition
+	habitable 1080
+	belt 1613
+	haze _menu/haze-33
+	link "4 Spring Rising"
+	asteroids "small rock" 66 4.9761
+	asteroids "medium rock" 6 4.3092
+	asteroids "large rock" 92 7.695
+	asteroids "small metal" 4 5.5917
+	asteroids "medium metal" 12 5.0787
+	asteroids "large metal" 29 3.591
+	minables aluminum 26 7.84109
+	minables silicon 2 11.9047
+	trade Clothing 218
+	trade Electronics 820
+	trade Equipment 377
+	trade Food 378
+	trade "Heavy Metals" 1181
+	trade Industrial 736
+	trade "Luxury Goods" 999
+	trade Medical 735
+	trade Metal 521
+	trade Plastic 466
+	fleet "Small Arach" 3000
+	fleet "Large Arach" 8000
+	fleet "Small Kimek" 600
+	fleet "Large Kimek" 1400
+	fleet "Small Saryd" 1500
+	fleet "Large Saryd" 6000
+	fleet Heliarch 800
+	object
+		sprite star/g0
+		period 10
+	object
+		sprite planet/rock8
+		distance 207.41
+		period 36.3574
+	object
+		sprite planet/rock2
+		distance 405.9
+		period 99.5352
+	object
+		sprite planet/cloud3
+		distance 672.74
+		period 212.383
+	object "Fourth Shadow"
+		sprite planet/ocean8
+		distance 1272.23
+		period 552.327
+	object
+		sprite planet/gas4-b
+		distance 3747.48
+		period 2792.27
+		object
+			sprite planet/oberon-b
+			distance 227
+			period 12.0625
+		object
+			sprite planet/tethys-b
+			distance 327
+			period 20.8554
+		object
+			sprite planet/dust3
+			distance 412
+			period 29.4946
+		object
+			sprite planet/ice8
+			distance 571
+			period 48.1229
+
+system "4 Axis"
+	pos -1169.63 365.214
+	government Coalition
+	habitable 425.92
+	belt 1838
+	link "14 Winter Below"
+	link "5 Axis"
+	link "5 Spring Below"
+	link "3 Axis"
+	asteroids "small rock" 71 3.726
+	asteroids "medium rock" 41 4.59
+	asteroids "large rock" 19 7.398
+	asteroids "small metal" 8 7.668
+	asteroids "medium metal" 22 7.452
+	asteroids "large metal" 20 6.804
+	minables aluminum 17 9.39886
+	minables iron 3 6.86334
+	trade Clothing 309
+	trade Electronics 724
+	trade Equipment 578
+	trade Food 448
+	trade "Heavy Metals" 1090
+	trade Industrial 856
+	trade "Luxury Goods" 1245
+	trade Medical 821
+	trade Metal 455
+	trade Plastic 483
+	fleet "Small Arach" 900
+	fleet "Large Arach" 1400
+	fleet "Small Kimek" 300
+	fleet "Large Kimek" 400
+	fleet "Small Saryd" 900
+	fleet "Large Saryd" 1600
+	fleet Heliarch 300
+	object
+		sprite star/k5
+		period 10
+	object
+		sprite planet/lava7-b
+		distance 220.36
+		period 63.4009
+	object "Rusty Second"
+		sprite planet/desert2
+		distance 415.77
+		period 164.314
+	object
+		sprite planet/rhea-b
+		distance 615.78
+		period 296.165
+	object
+		sprite planet/rock17-b
+		distance 1455.02
+		period 1075.72
+	object
+		sprite planet/gas1
+		distance 1864.98
+		period 1561.02
+		object
+			sprite planet/rock0-b
+			distance 221
+			period 13.1312
+
+system "4 Spring Rising"
+	pos -1309.63 321.214
+	government Coalition
+	habitable 320
+	belt 1801
+	link "1 Axis"
+	link "3 Spring Rising"
+	link "11 Spring Below"
+	asteroids "small rock" 9 10.8808
+	asteroids "large rock" 8 10.0688
+	asteroids "small metal" 3 11.4492
+	asteroids "medium metal" 42 6.1712
+	asteroids "large metal" 3 8.7696
+	minables iron 16 14.9192
+	minables silver 6 11.5775
+	trade Clothing 238
+	trade Electronics 785
+	trade Equipment 395
+	trade Food 354
+	trade "Heavy Metals" 1200
+	trade Industrial 755
+	trade "Luxury Goods" 1078
+	trade Medical 763
+	trade Metal 539
+	trade Plastic 468
+	fleet "Small Arach" 2400
+	fleet "Large Arach" 5000
+	fleet "Small Kimek" 500
+	fleet "Large Kimek" 1000
+	fleet "Small Saryd" 1300
+	fleet "Large Saryd" 4000
+	fleet Heliarch 500
+	object
+		sprite star/m0
+		period 10
+	object "Blue Interior"
+		sprite planet/ocean7
+		distance 375.04
+		period 162.406
+		object
+			sprite planet/io-b
+			distance 173
+			period 25.0209
+	object
+		sprite planet/lava6
+		distance 728.48
+		period 439.654
+	object
+		sprite planet/gas9-b
+		distance 1359.69
+		period 1121.1
+	object
+		sprite planet/gas2
+		distance 2599.94
+		period 2964.35
+		object
+			sprite planet/luna-b
+			distance 213
+			period 18.8358
+		object
+			sprite planet/rock17-b
+			distance 344
+			period 38.6591
+
+system "4 Summer Rising"
+	pos -1377.63 207.214
+	government Coalition
+	habitable 320
+	belt 1860
+	link "3 Pole"
+	link "14 Summer Above"
+	asteroids "small rock" 7 3.1694
+	asteroids "medium rock" 4 8.8504
+	asteroids "large rock" 1 8.6112
+	asteroids "small metal" 1 7.475
+	asteroids "medium metal" 19 8.8504
+	asteroids "large metal" 1 5.6212
+	minables silicon 3 12.6527
+	trade Clothing 221
+	trade Electronics 851
+	trade Equipment 363
+	trade Food 160
+	trade "Heavy Metals" 1171
+	trade Industrial 836
+	trade "Luxury Goods" 1021
+	trade Medical 570
+	trade Metal 278
+	trade Plastic 308
+	fleet "Small Arach" 1200
+	fleet "Large Arach" 2400
+	fleet "Small Kimek" 400
+	fleet "Large Kimek" 900
+	fleet "Small Saryd" 1200
+	fleet "Large Saryd" 3000
+	fleet Heliarch 900
+	object
+		sprite star/m0
+		period 10
+	object
+		sprite planet/rock2
+		distance 153.49
+		period 42.5212
+	object "Double Haze"
+		sprite planet/titan
+		distance 369.65
+		period 158.917
+	object
+		sprite planet/rock15
+		distance 571.9
+		period 305.819
+	object
+		sprite planet/desert3-b
+		distance 1413.15
+		period 1187.87
+	object
+		sprite planet/desert9-b
+		distance 1614.64
+		period 1450.77
+	object
+		sprite planet/jupiter-b
+		distance 3944.64
+		period 5539.83
+
+system "4 Winter Rising"
+	pos -1259.63 248.214
+	government Coalition
+	habitable 135
+	belt 1345
+	link "Sol Kimek"
+	link "1 Axis"
+	link "5 Winter Above"
+	link "3 Axis"
+	asteroids "medium rock" 6 2.2022
+	asteroids "large rock" 1 0.9464
+	asteroids "small metal" 71 2.2932
+	asteroids "medium metal" 30 2.548
+	asteroids "large metal" 5 1.7472
+	minables aluminum 1 3.8266
+	minables copper 3 3.79162
+	minables lead 9 3.97823
+	trade Clothing 201
+	trade Electronics 814
+	trade Equipment 543
+	trade Food 236
+	trade "Heavy Metals" 1248
+	trade Industrial 696
+	trade "Luxury Goods" 1162
+	trade Medical 783
+	trade Metal 444
+	trade Plastic 343
+	fleet "Small Arach" 800
+	fleet "Large Arach" 1400
+	fleet "Small Kimek" 300
+	fleet "Large Kimek" 400
+	fleet "Small Saryd" 1000
+	fleet "Large Saryd" 2000
+	fleet Heliarch 400
+	object
+		sprite star/m8
+		period 10
+	object "Inmost Blue"
+		sprite planet/ocean5
+		distance 154.25
+		period 65.9524
+	object
+		sprite planet/cloud6
+		distance 372.09
+		period 247.096
+	object
+		sprite planet/rock4
+		distance 699.1
+		period 636.359
+	object
+		sprite planet/gas10-b
+		distance 1598.39
+		period 2199.97
+		object
+			sprite planet/dust1
+			distance 199
+			period 14.7767
+	object
+		sprite planet/gas15-b
+		distance 3078.4
+		period 5880.05
+		object
+			sprite planet/dust5-b
+			distance 226
+			period 17.8838
+		object
+			sprite planet/rhea-b
+			distance 351
+			period 34.6145
+		object
+			sprite planet/ice8
+			distance 522
+			period 62.7773
+
+system "5 Axis"
+	pos -1142.63 394.214
+	government Coalition
+	habitable 233.28
+	belt 1775
+	link "4 Axis"
+	link "Ki War Ek"
+	asteroids "small rock" 6 3.3264
+	asteroids "medium rock" 86 5.4648
+	asteroids "large rock" 2 7.5438
+	asteroids "small metal" 34 6.831
+	asteroids "medium metal" 38 8.91
+	asteroids "large metal" 31 7.0092
+	minables copper 36 7.56345
+	minables iron 23 12.8681
+	trade Clothing 332
+	trade Electronics 678
+	trade Equipment 605
+	trade Food 502
+	trade "Heavy Metals" 1065
+	trade Industrial 810
+	trade "Luxury Goods" 1249
+	trade Medical 845
+	trade Metal 483
+	trade Plastic 474
+	fleet "Small Arach" 900
+	fleet "Large Arach" 1300
+	fleet "Small Kimek" 400
+	fleet "Large Kimek" 600
+	fleet "Small Saryd" 1000
+	fleet "Large Saryd" 1800
+	fleet Heliarch 300
+	object
+		sprite star/m4
+		period 10
+	object
+		sprite planet/rock11
+		distance 125.25
+		period 36.7103
+	object "Second Cerulean"
+		sprite planet/ocean6
+		distance 345.69
+		period 168.326
+	object
+		sprite planet/oberon
+		distance 532.53
+		period 321.838
+	object
+		sprite planet/cloud7-b
+		distance 893.69
+		period 699.683
+	object
+		sprite planet/gas17
+		distance 1685.05
+		period 1811.51
+		object
+			sprite planet/ice8
+			distance 202
+			period 12.2659
+		object
+			sprite planet/io-b
+			distance 289
+			period 20.9904
+		object
+			sprite planet/ice0-b
+			distance 399
+			period 34.0512
+		object
+			sprite planet/dust5-b
+			distance 536
+			period 53.0176
+
+system "5 Spring Below"
+	pos -1213.63 415.214
+	government Coalition
+	habitable 1313.28
+	belt 1104
+	link "4 Axis"
+	link "11 Spring Below"
+	asteroids "small rock" 77 6.0372
+	asteroids "medium rock" 13 8.9154
+	asteroids "large rock" 137 3.7206
+	asteroids "small metal" 21 6.0372
+	asteroids "medium metal" 5 3.7206
+	asteroids "large metal" 3 10.3194
+	minables copper 23 6.90259
+	minables silicon 25 6.11432
+	minables titanium 26 9.46178
+	trade Clothing 342
+	trade Electronics 718
+	trade Equipment 561
+	trade Food 434
+	trade "Heavy Metals" 1155
+	trade Industrial 791
+	trade "Luxury Goods" 1259
+	trade Medical 840
+	trade Metal 495
+	trade Plastic 521
+	fleet "Small Arach" 1400
+	fleet "Large Arach" 2000
+	fleet "Small Kimek" 500
+	fleet "Large Kimek" 1000
+	fleet "Small Saryd" 1000
+	fleet "Large Saryd" 2500
+	fleet Heliarch 500
+	object
+		sprite star/g0-old
+		distance 19.7171
+		period 12.9082
+		offset 180
+	object
+		sprite star/m4
+		distance 91.2829
+		period 12.9082
+	object
+		sprite planet/dust6
+		distance 235.643
+		period 39.9266
+	object
+		sprite planet/gas12
+		distance 863.853
+		period 280.247
+		object
+			sprite planet/europa-b
+			distance 297
+			period 13.4437
+	object
+		sprite planet/desert10
+		distance 1349.01
+		period 546.897
+	object
+		sprite planet/gas10-b
+		distance 2098.65
+		period 1061.19
+		object
+			sprite planet/miranda-b
+			distance 208
+			period 15.7904
+		object
+			sprite planet/rock7-b
+			distance 332
+			period 31.8423
+
+system "5 Summer Above"
+	pos -1387.63 118.214
+	government Coalition
+	habitable 425.92
+	belt 1133
+	haze _menu/haze-133
+	link "16 Autumn Rising"
+	link "3 Pole"
+	asteroids "small rock" 5 4.8608
+	asteroids "medium rock" 17 3.92
+	asteroids "large rock" 1 2.352
+	asteroids "small metal" 13 3.9984
+	asteroids "medium metal" 1 3.1752
+	asteroids "large metal" 6 5.8016
+	minables copper 3 5.63642
+	minables iron 4 4.74904
+	minables silver 8 7.76172
+	trade Clothing 270
+	trade Electronics 823
+	trade Equipment 432
+	trade Food 196
+	trade "Heavy Metals" 1088
+	trade Industrial 707
+	trade "Luxury Goods" 1001
+	trade Medical 650
+	trade Metal 285
+	trade Plastic 289
+	fleet "Small Arach" 1200
+	fleet "Large Arach" 5000
+	fleet "Small Kimek" 400
+	fleet "Large Kimek" 900
+	fleet "Small Saryd" 1200
+	fleet "Large Saryd" 3000
+	fleet Heliarch 800
+	object
+		sprite star/k5
+		period 10
+	object
+		sprite planet/rhea
+		distance 152.21
+		period 36.3966
+	object "Nearby Jade"
+		sprite planet/forest2
+		distance 410.9
+		period 161.436
+	object
+		sprite planet/titan-b
+		distance 664.19
+		period 331.768
+	object
+		sprite planet/desert8-b
+		distance 1035.4
+		period 645.741
+	object
+		sprite planet/gas14
+		distance 1579.64
+		period 1216.84
+		object
+			sprite planet/europa-b
+			distance 215
+			period 12.8386
+	object
+		sprite planet/gas3-b
+		distance 2585.48
+		period 2548.05
+
+system "5 Winter Above"
+	pos -1216.63 208.214
+	government Coalition
+	habitable 320
+	belt 1414
+	link "4 Winter Rising"
+	asteroids "small rock" 24 3.276
+	asteroids "medium rock" 33 2.1672
+	asteroids "large rock" 28 3.7044
+	asteroids "small metal" 35 1.3104
+	asteroids "medium metal" 207 1.7388
+	asteroids "large metal" 14 2.6712
+	minables neodymium 15 2.45957
+	minables titanium 12 3.07246
+	trade Clothing 191
+	trade Electronics 773
+	trade Equipment 567
+	trade Food 250
+	trade "Heavy Metals" 1263
+	trade Industrial 632
+	trade "Luxury Goods" 1217
+	trade Medical 803
+	trade Metal 388
+	trade Plastic 329
+	fleet "Small Arach" 400
+	fleet "Large Arach" 800
+	fleet "Small Kimek" 400
+	fleet "Large Kimek" 800
+	fleet "Small Saryd" 1200
+	fleet "Large Saryd" 4000
+	fleet Heliarch 300
+	object
+		sprite star/m0
+		period 10
+	object "Into White"
+		sprite planet/ice1
+		distance 357.96
+		period 151.439
+		object
+			sprite planet/ice0-b
+			distance 177
+			period 20.126
+	object
+		sprite planet/ganymede-b
+		distance 797.17
+		period 503.282
+	object
+		sprite planet/lava3
+		distance 1312.86
+		period 1063.68
+	object
+		sprite planet/jupiter-b
+		distance 1764.7
+		period 1657.64
+	object
+		sprite planet/gas2-b
+		distance 2494.95
+		period 2786.62
+		object
+			sprite planet/io-b
+			distance 183
+			period 15
+
+system "7 Autumn Rising"
+	pos -1235.63 177.214
+	government Coalition
+	habitable 425.92
+	belt 1289
+	link "11 Autumn Above"
+	asteroids "small rock" 7 1.463
+	asteroids "medium rock" 7 0.638
+	asteroids "large rock" 4 1.199
+	asteroids "medium metal" 4 0.891
+	asteroids "large metal" 1 0.715
+	minables aluminum 3 2.03899
+	trade Clothing 165
+	trade Electronics 655
+	trade Equipment 513
+	trade Food 278
+	trade "Heavy Metals" 1019
+	trade Industrial 824
+	trade "Luxury Goods" 1206
+	trade Medical 547
+	trade Metal 307
+	trade Plastic 321
+	fleet "Small Arach" 1200
+	fleet "Large Arach" 7000
+	fleet "Small Kimek" 500
+	fleet "Large Kimek" 1000
+	fleet "Small Saryd" 400
+	fleet "Large Saryd" 800
+	fleet Heliarch 350
+	object
+		sprite star/k5
+		period 10
+	object
+		sprite planet/ice6
+		distance 152.76
+		period 36.594
+	object "Sandy Two"
+		sprite planet/desert9
+		distance 447.8
+		period 183.663
+	object
+		sprite planet/gas0
+		distance 1034.05
+		period 644.478
+	object
+		sprite planet/uranus-b
+		distance 1475.74
+		period 1098.78
+	object
+		sprite planet/gas2-b
+		distance 2223.3
+		period 2031.86
+		object
+			sprite planet/dust3
+			distance 184
+			period 15.1231
+		object
+			sprite planet/tethys
+			distance 287
+			period 29.4603
+		object
+			sprite planet/callisto-b
+			distance 453
+			period 58.4201
+
+system "8 Winter Below"
+	pos -1179.63 284.214
+	government Coalition
+	habitable 486.68
+	belt 1285
+	link "3 Axis"
+	link "14 Winter Below"
+	asteroids "small rock" 25 1.4256
+	asteroids "medium rock" 54 2.2968
+	asteroids "large rock" 69 3.5376
+	asteroids "medium metal" 31 2.112
+	asteroids "large metal" 4 2.3496
+	minables aluminum 12 2.86905
+	minables titanium 2 4.18618
+	minables uranium 11 4.2075
+	trade Clothing 281
+	trade Electronics 812
+	trade Equipment 650
+	trade Food 439
+	trade "Heavy Metals" 1060
+	trade Industrial 839
+	trade "Luxury Goods" 1238
+	trade Medical 894
+	trade Metal 520
+	trade Plastic 336
+	fleet "Small Arach" 800
+	fleet "Large Arach" 1400
+	fleet "Small Kimek" 300
+	fleet "Large Kimek" 400
+	fleet "Small Saryd" 1200
+	fleet "Large Saryd" 2000
+	fleet Heliarch 250
+	object
+		sprite star/k0
+		period 10
+	object
+		sprite planet/dust6
+		distance 172.25
+		period 40.9899
+	object "Dusk Companion"
+		sprite planet/rock19
+		distance 665.46
+		period 311.258
+		object
+			sprite planet/rock3-b
+			distance 156
+			period 26.0401
+	object
+		sprite planet/gas7
+		distance 1368.07
+		period 917.489
+	object
+		sprite planet/gas16-b
+		distance 3048.07
+		period 3051.23
+		object
+			sprite planet/io
+			distance 192
+			period 14.0039
+		object
+			sprite planet/miranda-b
+			distance 334
+			period 32.1305
+
+system "9 Spring Above"
+	pos -1377.63 281.214
+	government Coalition
+	habitable 1050.92
+	belt 1397
+	haze _menu/haze-67
+	link "Sol Kimek"
+	asteroids "medium rock" 37 4.07
+	asteroids "large rock" 3 3.245
+	asteroids "small metal" 102 1.375
+	asteroids "medium metal" 6 2.97
+	asteroids "large metal" 63 3.3
+	minables silicon 50 3.91149
+	minables silver 19 3.36587
+	minables uranium 24 2.56933
+	trade Clothing 242
+	trade Electronics 826
+	trade Equipment 454
+	trade Food 201
+	trade "Heavy Metals" 1108
+	trade Industrial 736
+	trade "Luxury Goods" 1049
+	trade Medical 669
+	trade Metal 524
+	trade Plastic 373
+	fleet "Small Arach" 900
+	fleet "Large Arach" 2000
+	fleet "Small Kimek" 400
+	fleet "Large Kimek" 800
+	fleet "Small Saryd" 900
+	fleet "Large Saryd" 2400
+	fleet Heliarch 700
+	object
+		sprite star/g5
+		distance 42.1494
+		period 13.0866
+	object
+		sprite star/k5
+		distance 61.8506
+		period 13.0866
+		offset 180
+	object
+		sprite planet/ice1-b
+		distance 234.461
+		period 44.2976
+	object
+		sprite planet/rock5
+		distance 450.461
+		period 117.967
+	object
+		sprite planet/lava6
+		distance 688.711
+		period 223.013
+	object "Turquoise Four"
+		sprite planet/water1
+		distance 925.521
+		period 347.42
+	object
+		sprite planet/gas3
+		distance 1763.76
+		period 913.976
+	object
+		sprite planet/gas5
+		distance 2550
+		period 1588.86
+		object
+			sprite planet/europa
+			distance 271
+			period 14.8355
+		object
+			sprite planet/rock3-b
+			distance 415
+			period 28.1138
+
+system Ablodab
+	pos -854.587 592.051
+	government Coalition
+	habitable 425.92
+	belt 1368
+	link Debrugt
+	link Gupta
+	link Pelubta
+	link Mebla
+	asteroids "small rock" 2 1.8837
+	asteroids "large rock" 2 3.8766
+	asteroids "medium metal" 2 3.7401
+	asteroids "large metal" 1 2.8392
+	trade Clothing 285
+	trade Electronics 789
+	trade Equipment 578
+	trade Food 398
+	trade "Heavy Metals" 904
+	trade Industrial 808
+	trade "Luxury Goods" 1378
+	trade Medical 691
+	trade Metal 315
+	trade Plastic 515
+	fleet "Small Arach" 400
+	fleet "Large Arach" 600
+	fleet "Small Kimek" 1100
+	fleet "Large Kimek" 2400
+	fleet "Small Saryd" 1000
+	fleet "Large Saryd" 2400
+	fleet Heliarch 700
+	object
+		sprite star/k5
+		period 10
+	object
+		sprite planet/desert7-b
+		distance 185
+		period 48.7701
+	object
+		sprite planet/desert2-b
+		distance 514.56
+		period 226.23
+	object
+		sprite planet/gas5
+		distance 1141.05
+		period 747.056
+		object
+			sprite planet/tethys-b
+			distance 263
+			period 14.1834
+	object
+		sprite planet/cloud5
+		distance 1754.3
+		period 1424.14
+	object
+		sprite planet/gas1-b
+		distance 4998.14
+		period 6848.71
+		object
+			sprite planet/dust1
+			distance 245
+			period 15.3273
+		object
+			sprite planet/rock3-b
+			distance 396
+			period 31.4962
+		object
+			sprite planet/dust5
+			distance 558
+			period 52.6826
+		object
+			sprite planet/luna
+			distance 755
+			period 82.9155
+
+system Ablub
+	pos -581.587 637.051
+	government Coalition
+	habitable 233.28
+	belt 1641
+	haze _menu/haze-133
+	link Blubipad
+	link Miblulub
+	asteroids "medium rock" 9 2.3868
+	asteroids "large rock" 3 2.4786
+	asteroids "small metal" 2 3.3354
+	asteroids "medium metal" 2 2.8458
+	asteroids "large metal" 3 2.7234
+	minables aluminum 2 4.40525
+	minables iron 2 4.60941
+	minables lead 3 4.33078
+	trade Clothing 335
+	trade Electronics 645
+	trade Equipment 668
+	trade Food 158
+	trade "Heavy Metals" 1017
+	trade Industrial 632
+	trade "Luxury Goods" 1419
+	trade Medical 574
+	trade Metal 335
+	trade Plastic 336
+	fleet "Small Arach" 600
+	fleet "Large Arach" 1800
+	fleet "Small Kimek" 2000
+	fleet "Large Kimek" 8000
+	fleet "Small Saryd" 1600
+	fleet "Large Saryd" 8000
+	fleet Heliarch 200
+	object
+		sprite star/m4
+		period 10
+	object "Ablub's Invention"
+		sprite planet/forest1-b
+		distance 203.76
+		period 76.1728
+	object
+		sprite planet/cloud0-b
+		distance 419.76
+		period 225.228
+	object
+		sprite planet/rock8
+		distance 714.8
+		period 500.493
+	object
+		sprite planet/gas5
+		distance 1929.89
+		period 2220.34
+
+system Acamar
+	pos -284 -3
+	government Syndicate
+	habitable 1080
+	belt 1013
+	link Diphda
+	link Aldebaran
+	link Elnath
+	link Kugel
+	asteroids "medium rock" 2 2.352
+	asteroids "large rock" 1 1.4952
+	asteroids "small metal" 3 1.9488
+	asteroids "medium metal" 19 2.2848
+	asteroids "large metal" 12 2.352
+	minables iron 9 3.05965
+	minables titanium 1 3.40286
+	trade Clothing 297
+	trade Electronics 620
+	trade Equipment 581
+	trade Food 390
+	trade "Heavy Metals" 875
+	trade Industrial 694
+	trade "Luxury Goods" 1395
+	trade Medical 576
+	trade Metal 249
+	trade Plastic 483
+	fleet "Large Core Merchants" 3000
+	fleet "Small Core Merchants" 2000
+	fleet "Small Republic" 3600
+	fleet "Small Syndicate" 3200
+	object
+		sprite star/g0
+		period 10
+	object
+		sprite planet/lava2-b
+		distance 174.69
+		period 28.1028
+	object
+		sprite planet/ice0
+		distance 396.53
+		period 96.1086
+	object
+		sprite planet/rock9-b
+		distance 798.37
+		period 274.571
+		object
+			sprite planet/dust7
+			distance 149
+			period 20.7539
+	object
+		sprite planet/cloud1
+		distance 1350.62
+		period 604.154
+	object
+		sprite planet/dust3-b
+		distance 4090.18
+		period 3183.92
+
+system Achernar
+	pos -93 154
+	government Syndicate
+	habitable 625
+	belt 1963
+	haze _menu/haze-133
+	link "Al Dhanab"
+	link Alpheratz
+	link Schedar
+	link Polaris
+	asteroids "medium metal" 27 1.8676
+	asteroids "large metal" 2 4.7334
+	minables copper 4 3.93672
+	minables iron 4 2.64095
+	minables titanium 6 2.83119
+	trade Clothing 263
+	trade Electronics 742
+	trade Equipment 618
+	trade Food 264
+	trade "Heavy Metals" 749
+	trade Industrial 711
+	trade "Luxury Goods" 964
+	trade Medical 775
+	trade Metal 289
+	trade Plastic 337
+	fleet "Large Core Merchants" 400
+	fleet "Large Syndicate" 600
+	fleet "Small Syndicate" 500
+	fleet "Small Core Merchants" 300
+	fleet "Human Miners" 3000
+	fleet "Republic Logistics" 6000
+	object
+		sprite star/g5
+		period 10
+	object
+		sprite planet/desert3
+		distance 211.24
+		period 49.1229
+	object Foundry
+		sprite planet/forest1-b
+		distance 548
+		period 205.254
+		object
+			sprite planet/miranda-b
+			distance 130
+			period 15.4433
+	object
+		sprite planet/dust0
+		distance 978.21
+		period 489.517
+	object
+		sprite planet/titan-b
+		distance 1311.9
+		period 760.276
+	object
+		sprite planet/ice8
+		distance 1664.39
+		period 1086.43
+	object
+		sprite planet/neptune
+		distance 3673.43
+		period 3562.28
+		object
+			sprite planet/lava0
+			distance 202
+			period 12.7598
+		object
+			sprite planet/rhea
+			distance 307
+			period 23.907
+
+system Acrux
+	pos -808 192
+	government Republic
+	habitable 590.625
+	belt 1407
+	haze _menu/haze-67
+	link Minkar
+	link "Zeta Centauri"
+	link Izar
+	asteroids "small rock" 82 6.7183
+	asteroids "medium rock" 91 3.4385
+	asteroids "large rock" 17 4.8139
+	asteroids "medium metal" 44 4.3378
+	asteroids "large metal" 19 4.8139
+	minables lead 34 5.87828
+	minables titanium 6 9.19767
+	trade Clothing 313
+	trade Electronics 655
+	trade Equipment 580
+	trade Food 164
+	trade "Heavy Metals" 891
+	trade Industrial 792
+	trade "Luxury Goods" 1072
+	trade Medical 565
+	trade Metal 456
+	trade Plastic 448
+	fleet "Small Southern Merchants" 600
+	fleet "Large Southern Merchants" 1000
+	fleet "Small Militia" 800
+	fleet "Large Militia" 1200
+	fleet "Small Southern Pirates" 1000
+	fleet "Large Southern Pirates" 2400
+	fleet "Human Miners" 5000
+	object
+		sprite star/k0
+		distance 17.9429
+		period 11.4474
+	object
+		sprite star/m4
+		distance 60.5571
+		period 11.4474
+		offset 180
+	object
+		sprite planet/gas2-hot
+		distance 249.567
+		period 64.8911
+	object Starcross
+		sprite planet/cloud2
+		distance 540.407
+		period 206.769
+	object
+		sprite planet/luna
+		distance 1010.57
+		period 528.752
+	object
+		sprite planet/rock13
+		distance 1587.57
+		period 1041.12
+	object
+		sprite planet/gas6
+		distance 3849.21
+		period 3930.62
+		object
+			sprite planet/desert4
+			distance 307
+			period 12.1916
+		object
+			sprite planet/ice8-b
+			distance 425
+			period 19.858
+		object
+			sprite planet/dust3
+			distance 576
+			period 31.3319
+		object
+			sprite planet/rock17
+			distance 730
+			period 44.703
+
+system Adhara
+	pos -669 -200
+	government Republic
+	habitable 670
+	belt 1014
+	link "Epsilon Leonis"
+	link Gomeisa
+	asteroids "small rock" 5 3.705
+	asteroids "medium rock" 3 5.3675
+	asteroids "large rock" 9 5.3675
+	asteroids "medium metal" 9 7.125
+	asteroids "large metal" 1 4.9875
+	minables silver 1 10.3117
+	trade Clothing 349
+	trade Electronics 692
+	trade Equipment 439
+	trade Food 544
+	trade "Heavy Metals" 1137
+	trade Industrial 625
+	trade "Luxury Goods" 1310
+	trade Medical 608
+	trade Metal 210
+	trade Plastic 440
+	fleet "Small Northern Merchants" 600
+	fleet "Large Northern Merchants" 800
+	fleet "Small Deep Security" 900
+	fleet "Small Deep Merchants" 600
+	fleet "Large Deep Security" 2400
+	fleet "Large Deep Merchants" 900
+	fleet "Small Northern Pirates" 2000
+	object
+		sprite star/k0
+		distance 33.5961
+		period 16.6267
+	object
+		sprite star/m0
+		distance 71.4039
+		period 16.6267
+		offset 180
+	object
+		sprite planet/desert6-b
+		distance 279.714
+		period 72.2926
+	object Muspel
+		sprite planet/mars
+		distance 638.124
+		period 249.104
+		object Norn
+			sprite planet/ice7
+			distance 139
+			period 20.6008
+	object
+		sprite planet/cloud7-b
+		distance 1033.48
+		period 513.426
+	object
+		sprite planet/dust1
+		distance 1498.37
+		period 896.299
+	object
+		sprite planet/oberon
+		distance 2411.01
+		period 1829.46
+
+system Aescolanus
+	pos -15 340
+	government Uninhabited
+	attributes "ember waste" "wormhole"
+	habitable 233.28
+	belt 1323
+	haze _menu/haze-red
+	trade Clothing 262
+	trade Electronics 835
+	trade Equipment 421
+	trade Food 248
+	trade "Heavy Metals" 882
+	trade Industrial 719
+	trade "Luxury Goods" 1235
+	trade Medical 715
+	trade Metal 410
+	trade Plastic 289
+	object
+		sprite star/m4
+		period 10
+	object
+		sprite planet/desert4
+		distance 111.24
+		period 30.7265
+	object
+		sprite planet/dust3-b
+		distance 308.68
+		period 142.031
+	object
+		sprite planet/gas8
+		distance 636.84
+		period 420.888
+	object
+		sprite planet/desert9-b
+		distance 912.88
+		period 722.34
+	object "Ember Wormhole"
+		sprite planet/wormhole-red
+		distance 2279.29
+		period 2849.84
+
+system "Aki'il"
+	pos -83 722
+	government Uninhabited
+	attributes "ember waste" "graveyard"
+	habitable 1505.92
+	asteroids "large metal" 47 5
+	asteroids "large rock" 2 10
+	asteroids "medium metal" 100 8
+	asteroids "medium rock" 4 5
+	asteroids "small metal" 48 6
+	asteroids "small rock" 4 8
+	trade Clothing 247
+	trade Electronics 642
+	trade Equipment 469
+	trade Food 440
+	trade "Heavy Metals" 722
+	trade Industrial 811
+	trade "Luxury Goods" 1220
+	trade Medical 849
+	trade Metal 335
+	trade Plastic 286
+	object
+		sprite star/g0-old
+		distance 32.2427
+		period 12.5463
+	object
+		sprite star/k5
+		distance 81.7573
+		period 12.5463
+		offset 180
+	object
+		sprite planet/rock7
+		distance 1209.76
+		period 433.717
+		offset 29.5665
+	object
+		sprite planet/rock18
+		distance 252.757
+		period 41.4204
+		offset 61.3079
+	object
+		sprite planet/neptune
+		distance 2740.76
+		period 1478.99
+		offset 9.66291
+	object
+		sprite planet/desert7
+		distance 600.757
+		period 151.778
+		offset 57.1944
+	object "Kaeyin"
+		sprite planet/ocean3
+		distance 927.757
+		period 291.28
+		offset 4.23336
+
+system "Al Dhanab"
+	pos -177 207
+	government Syndicate
+	habitable 1080
+	belt 1432
+	haze _menu/haze-133
+	link Scheat
+	link Mirach
+	link Alpheratz
+	link Achernar
+	asteroids "small rock" 65 3.45
+	asteroids "medium rock" 24 1.6008
+	asteroids "large rock" 6 1.6008
+	asteroids "small metal" 94 2.7324
+	asteroids "medium metal" 36 4.14
+	asteroids "large metal" 116 3.2016
+	minables iron 32 3.202
+	minables silicon 56 3.98107
+	minables tungsten 37 3.66333
+	trade Clothing 232
+	trade Electronics 809
+	trade Equipment 573
+	trade Food 318
+	trade "Heavy Metals" 674
+	trade Industrial 655
+	trade "Luxury Goods" 1009
+	trade Medical 718
+	trade Metal 262
+	trade Plastic 317
+	fleet "Small Core Merchants" 400
+	fleet "Large Core Merchants" 400
+	fleet "Small Syndicate" 1000
+	fleet "Large Syndicate" 800
+	fleet "Republic Logistics" 5300
+	fleet "Small Core Pirates" 2000
+	fleet "Large Core Pirates" 3000
+	fleet "Human Miners" 2000
+	object
+		sprite star/g0
+		period 10
+	object
+		sprite planet/ice5
+		distance 364
+		period 84.5279
+		object
+			sprite planet/dust4-b
+			distance 158
+			period 17.5128
+	object Burthen
+		sprite planet/forest0
+		distance 874.25
+		period 314.631
+	object
+		sprite planet/ocean4
+		distance 1488.34
+		period 698.878
+		object
+			sprite planet/rock17
+			distance 156
+			period 17.1813
+	object
+		sprite planet/rock3
+		distance 1931.34
+		period 1033.09
+	object
+		sprite planet/luna
+		distance 2298.15
+		period 1340.96
+
+system Albaldah
+	pos -350 484
+	government Republic
+	habitable 534.375
+	belt 1622
+	haze _menu/haze-133
+	link Albireo
+	link Girtab
+	link Nunki
+	link Eltanin
+	asteroids "small rock" 1 8.82
+	asteroids "medium rock" 20 5.4
+	asteroids "large rock" 9 7.02
+	asteroids "medium metal" 86 3.18
+	asteroids "large metal" 5 4.2
+	minables iron 20 4.32166
+	minables lead 28 5.26814
+	minables titanium 21 7.37733
+	trade Clothing 218
+	trade Electronics 772
+	trade Equipment 534
+	trade Food 180
+	trade "Heavy Metals" 989
+	trade Industrial 834
+	trade "Luxury Goods" 1274
+	trade Medical 801
+	trade Metal 266
+	trade Plastic 343
+	fleet "Small Southern Merchants" 600
+	fleet "Large Southern Merchants" 1000
+	fleet "Small Southern Pirates" 800
+	fleet "Large Southern Pirates" 1200
+	fleet "Small Militia" 1400
+	fleet "Large Militia" 2400
+	fleet Quarg 3000
+	fleet "Human Miners" 3000
+	object
+		sprite star/k5
+		distance 42.7246
+		period 19.0178
+		offset 180
+	object
+		sprite star/m0
+		distance 63.7754
+		period 19.0178
+	object
+		sprite planet/ice6
+		distance 261.435
+		period 73.1448
+	object "New India"
+		sprite planet/ocean2
+		distance 517.075
+		period 203.455
+	object
+		sprite planet/tethys
+		distance 768.685
+		period 368.774
+	object
+		sprite planet/gas16-b
+		distance 1670.9
+		period 1181.85
+		object
+			sprite planet/lava1-b
+			distance 204
+			period 14.3618
+	object
+		sprite planet/uranus-b
+		distance 3405.54
+		period 3438.86
+		object
+			sprite planet/luna
+			distance 235
+			period 14.5337
+
+system Albireo
+	pos -270 503
+	government Republic
+	habitable 760
+	belt 1030
+	link Tarazed
+	link Albaldah
+	link Sadr
+	link Lurata
+	asteroids "small rock" 2 3.57
+	asteroids "medium rock" 4 2.5466
+	asteroids "large rock" 4 3.1654
+	asteroids "medium metal" 52 1.9992
+	asteroids "large metal" 9 3.5224
+	trade Clothing 262
+	trade Electronics 790
+	trade Equipment 483
+	trade Food 191
+	trade "Heavy Metals" 959
+	trade Industrial 869
+	trade "Luxury Goods" 1251
+	trade Medical 844
+	trade Metal 237
+	trade Plastic 387
+	fleet "Small Southern Merchants" 800
+	fleet "Large Southern Merchants" 1200
+	fleet "Small Southern Pirates" 1000
+	fleet "Large Southern Pirates" 1400
+	fleet "Small Militia" 1800
+	fleet "Large Militia" 3000
+	fleet Quarg 2000
+	object
+		sprite star/g5
+		distance 15.6316
+		period 11.9778
+	object
+		sprite star/m4
+		distance 72.3684
+		period 11.9778
+		offset 180
+	object
+		sprite planet/desert9
+		distance 258.368
+		period 60.2577
+	object
+		sprite planet/cloud8-b
+		distance 494.928
+		period 159.76
+	object Sinter
+		sprite planet/rock9
+		distance 801.738
+		period 329.384
+	object
+		sprite planet/ice8-b
+		distance 2211.99
+		period 1509.48
+
+system Alcyone
+	pos -80 -144
+	government Pirate
+	habitable 270
+	belt 1438
+	haze _menu/haze-133
+	link Zaurak
+	link Oblate
+	link Durax
+	asteroids "small rock" 4 1.62
+	asteroids "medium rock" 16 1.3176
+	asteroids "large rock" 16 1.08
+	asteroids "medium metal" 11 2.5272
+	asteroids "large metal" 2 2.0736
+	minables copper 5 2.95151
+	trade Clothing 322
+	trade Electronics 699
+	trade Equipment 658
+	trade Food 197
+	trade "Heavy Metals" 868
+	trade Industrial 714
+	trade "Luxury Goods" 1042
+	trade Medical 705
+	trade Metal 249
+	trade Plastic 439
+	fleet "Small Core Pirates" 400
+	fleet "Large Core Pirates" 600
+	fleet "Large Syndicate" 1200
+	object
+		sprite star/m4
+		distance 45.5
+		period 21.132
+		offset 180
+	object
+		sprite star/m4
+		distance 45.5
+		period 21.132
+	object Stormhold
+		sprite planet/ocean0
+		distance 302.91
+		period 128.336
+	object
+		sprite planet/gas4-b
+		distance 894.47
+		period 651.219
+		object
+			sprite planet/ice7
+			distance 252
+			period 13.5253
+	object
+		sprite planet/rock13
+		distance 1855.03
+		period 1944.93
+	object
+		sprite planet/neptune-b
+		distance 3456.59
+		period 4947.09
+		object
+			sprite planet/rock0-b
+			distance 216
+			period 14.1091
+		object
+			sprite planet/rock3
+			distance 315
+			period 24.8475
+
+system Aldebaran
+	pos -356 -26
+	government Republic
+	habitable 625
+	belt 1296
+	link Capella
+	link Acamar
+	link Elnath
+	link Kursa
+	asteroids "large metal" 1 2.8322
+	trade Clothing 227
+	trade Electronics 637
+	trade Equipment 654
+	trade Food 436
+	trade "Heavy Metals" 955
+	trade Industrial 716
+	trade "Luxury Goods" 1426
+	trade Medical 514
+	trade Metal 265
+	trade Plastic 479
+	fleet "Small Northern Merchants" 600
+	fleet "Large Northern Merchants" 600
+	fleet "Paradise Merchants" 1000
+	fleet "Small Republic" 800
+	fleet "Large Republic" 400
+	object
+		sprite star/g5
+		period 10
+	object
+		sprite planet/cloud6-b
+		distance 165.81
+		period 34.1614
+	object Ada
+		sprite planet/forest2-b
+		distance 549.02
+		period 205.827
+	object
+		sprite planet/rock6-b
+		distance 1174.58
+		period 644.086
+	object
+		sprite planet/dust7-b
+		distance 2128.22
+		period 1570.89
+
+system Alderamin
+	pos -272 258
+	government Syndicate
+	habitable 1705
+	belt 1908
+	haze _menu/haze-133
+	link Alnair
+	link "Delta Capricorni"
+	asteroids "small rock" 1 9.5472
+	asteroids "medium rock" 3 8.5644
+	asteroids "large rock" 1 10.3896
+	asteroids "small metal" 87 9.9684
+	asteroids "medium metal" 31 9.9684
+	asteroids "large metal" 58 7.4412
+	trade Clothing 302
+	trade Electronics 726
+	trade Equipment 401
+	trade Food 573
+	trade "Heavy Metals" 753
+	trade Industrial 671
+	trade "Luxury Goods" 1065
+	trade Medical 475
+	trade Metal 237
+	trade Plastic 373
+	fleet "Small Core Merchants" 2000
+	fleet "Large Core Merchants" 3200
+	fleet "Small Syndicate" 800
+	fleet "Large Syndicate" 800
+	fleet "Small Core Pirates" 1000
+	fleet "Large Core Pirates" 1200
+	object
+		sprite star/g0
+		distance 36.6569
+		period 9.68719
+	object
+		sprite star/g5
+		distance 63.3431
+		period 9.68719
+		offset 180
+	object
+		sprite planet/desert7
+		distance 258.593
+		period 40.2831
+	object
+		sprite planet/venus
+		distance 502.283
+		period 109.049
+	object
+		sprite planet/cloud0
+		distance 1072.52
+		period 340.258
+		object Furnace
+			sprite planet/dust4
+			distance 154
+			period 21.8072
+	object
+		sprite planet/miranda
+		distance 1670.52
+		period 661.419
+	object
+		sprite planet/gas0-b
+		distance 2301.76
+		period 1069.77
+
+system Aldhibain
+	pos -659 451
+	government Republic
+	habitable 455.625
+	belt 1840
+	link Kornephoros
+	link Sabik
+	link Alniyat
+	link Dschubba
+	asteroids "small rock" 1 2.574
+	asteroids "medium rock" 5 2.0592
+	asteroids "large rock" 1 4.1184
+	asteroids "small metal" 39 3.8412
+	asteroids "medium metal" 72 3.8412
+	asteroids "large metal" 3 5.2668
+	minables iron 5 6.68827
+	minables silicon 11 5.1137
+	minables titanium 10 4.19059
+	trade Clothing 294
+	trade Electronics 736
+	trade Equipment 408
+	trade Food 146
+	trade "Heavy Metals" 1158
+	trade Industrial 586
+	trade "Luxury Goods" 1040
+	trade Medical 806
+	trade Metal 534
+	trade Plastic 360
+	fleet "Small Southern Merchants" 400
+	fleet "Large Southern Merchants" 600
+	fleet "Small Militia" 600
+	fleet "Large Militia" 1000
+	fleet "Small Southern Pirates" 800
+	fleet "Large Southern Pirates" 2000
+	fleet "Human Miners" 3000
+	object
+		sprite star/k0
+		period 10
+	object
+		sprite planet/desert10
+		distance 162.5
+		period 38.8183
+	object Glaze
+		sprite planet/ocean2
+		distance 449.59
+		period 178.641
+	object
+		sprite planet/desert7
+		distance 779.2
+		period 407.596
+	object
+		sprite planet/neptune-b
+		distance 2197.61
+		period 1930.55
+		object "Charon Station"
+			sprite planet/station14
+			distance 211
+			period 13.622
+
+system Algenib
+	pos -118 341
+	government Pirate
+	habitable 455.625
+	belt 1273
+	link Gienah
+	asteroids "large metal" 1 6.7392
+	trade Clothing 357
+	trade Electronics 660
+	trade Equipment 386
+	trade Food 538
+	trade "Heavy Metals" 798
+	trade Industrial 606
+	trade "Luxury Goods" 1078
+	trade Medical 607
+	trade Metal 293
+	trade Plastic 423
+	fleet "Small Core Pirates" 300
+	fleet "Large Core Pirates" 500
+	fleet "Large Syndicate" 800
+	object
+		sprite star/k0-old
+		period 10
+	object "Buccaneer Bay"
+		sprite planet/ocean6
+		distance 267.91
+		period 82.175
+		object
+			sprite planet/dust7-b
+			distance 147
+			period 13.5253
+	object
+		sprite planet/ice7
+		distance 579.92
+		period 261.703
+	object
+		sprite planet/callisto-b
+		distance 887.96
+		period 495.845
+	object
+		sprite planet/gas14
+		distance 2108.2
+		period 1813.94
+		object
+			sprite planet/rock0
+			distance 237
+			period 14.0557
+		object
+			sprite planet/luna-b
+			distance 348
+			period 25.0091
+		object
+			sprite planet/dust0
+			distance 497
+			period 42.6838
+
+system Algieba
+	pos -691 -52
+	government Republic
+	habitable 2695
+	belt 1070
+	link "Tania Australis"
+	link Alphard
+	link Zosma
+	asteroids "small rock" 7 7.236
+	asteroids "medium rock" 1 3.726
+	asteroids "large rock" 4 5.238
+	asteroids "small metal" 2 3.564
+	asteroids "medium metal" 5 4.482
+	asteroids "large metal" 2 5.724
+	minables lead 5 6.42007
+	minables silicon 4 10.379
+	minables titanium 2 8.83592
+	trade Clothing 332
+	trade Electronics 714
+	trade Equipment 616
+	trade Food 485
+	trade "Heavy Metals" 1071
+	trade Industrial 607
+	trade "Luxury Goods" 1392
+	trade Medical 621
+	trade Metal 251
+	trade Plastic 476
+	fleet "Small Republic" 1400
+	fleet "Large Republic" 5000
+	fleet "Small Northern Merchants" 400
+	fleet "Large Northern Merchants" 600
+	object
+		sprite star/f0
+		distance 5.86085
+		period 9.75123
+	object
+		sprite star/m4
+		distance 111.139
+		period 9.75123
+		offset 180
+	object
+		sprite planet/ice8-b
+		distance 266.779
+		period 33.5744
+	object
+		sprite planet/dust1
+		distance 495.669
+		period 85.0293
+	object
+		sprite planet/dust3-b
+		distance 712.919
+		period 146.67
+	object
+		sprite planet/forest0-b
+		distance 1363.17
+		period 387.798
+	object
+		sprite planet/gas4
+		distance 3147.93
+		period 1360.87
+		object
+			sprite planet/rock7
+			distance 225
+			period 11.4109
+		object Watcher
+			sprite planet/tethys
+			distance 353
+			period 22.4237
+
+system Algol
+	pos -210 17
+	government Syndicate
+	habitable 534.375
+	belt 1839
+	haze _menu/haze-133
+	link Ruchbah
+	asteroids "large metal" 1 1.35
+	trade Clothing 219
+	trade Electronics 672
+	trade Equipment 643
+	trade Food 254
+	trade "Heavy Metals" 688
+	trade Industrial 870
+	trade "Luxury Goods" 1162
+	trade Medical 560
+	trade Metal 322
+	trade Plastic 309
+	fleet "Small Core Merchants" 1600
+	fleet "Large Core Merchants" 4000
+	fleet "Small Core Pirates" 1800
+	fleet "Large Core Pirates" 5000
+	fleet "Small Syndicate" 2400
+	object
+		sprite star/k5-old
+		distance 42.7246
+		period 19.0178
+	object
+		sprite star/m0
+		distance 63.7754
+		period 19.0178
+		offset 180
+	object
+		sprite planet/desert6
+		distance 336.885
+		period 106.994
+	object Quicksilver
+		sprite planet/ocean9
+		distance 599.175
+		period 253.786
+	object
+		sprite planet/desert4-b
+		distance 1101.87
+		period 632.892
+	object
+		sprite planet/uranus
+		distance 2249.12
+		period 1845.67
+		object
+			sprite planet/io-b
+			distance 219
+			period 13.075
+		object
+			sprite planet/dust7
+			distance 355
+			period 26.9847
+		object
+			sprite planet/rock14
+			distance 514
+			period 47.0131
+
+system Algorel
+	pos -631 145
+	government Republic
+	habitable 320
+	belt 1993
+	haze _menu/haze-67
+	link "Cor Caroli"
+	link Turais
+	link Mizar
+	link Phecda
+	asteroids "small rock" 2 3.094
+	asteroids "medium rock" 5 2.142
+	asteroids "large rock" 2 1.768
+	asteroids "small metal" 7 4.998
+	asteroids "medium metal" 75 3.434
+	asteroids "large metal" 27 3.4
+	trade Clothing 256
+	trade Electronics 821
+	trade Equipment 490
+	trade Food 336
+	trade "Heavy Metals" 799
+	trade Industrial 606
+	trade "Luxury Goods" 1094
+	trade Medical 758
+	trade Metal 490
+	trade Plastic 427
+	fleet "Small Southern Merchants" 600
+	fleet "Large Southern Merchants" 900
+	fleet "Small Militia" 2000
+	fleet "Small Republic" 3000
+	fleet "Small Southern Pirates" 1600
+	fleet "Large Southern Pirates" 5000
+	object
+		sprite star/k5
+		period 10
+	object "New Wales"
+		sprite planet/cloud6
+		distance 275.25
+		period 102.112
+		object
+			sprite planet/rock17-b
+			distance 145
+			period 16.6972
+	object
+		sprite planet/gas14-b
+		distance 1107.49
+		period 824.128
+		object
+			sprite planet/tethys-b
+			distance 234
+			period 13.7896
+		object
+			sprite planet/rock0
+			distance 368
+			period 27.1957
+	object
+		sprite planet/gas13
+		distance 1859.58
+		period 1793.11
+		object "Hydra Station"
+			sprite planet/station13
+			distance 277
+			period 12.3693
+
+system Alheka
+	pos -350 -271
+	government Republic
+	habitable 1080
+	belt 1380
+	haze _menu/haze-67
+	link Betelgeuse
+	link Canopus
+	asteroids "small rock" 3 6.24
+	asteroids "medium rock" 11 9.906
+	asteroids "large rock" 5 8.892
+	asteroids "small metal" 14 8.19
+	asteroids "medium metal" 47 11.466
+	asteroids "large metal" 11 7.566
+	minables lead 16 13.7996
+	minables tungsten 10 13.3676
+	trade Clothing 181
+	trade Electronics 663
+	trade Equipment 697
+	trade Food 509
+	trade "Heavy Metals" 1066
+	trade Industrial 618
+	trade "Luxury Goods" 1422
+	trade Medical 531
+	trade Metal 388
+	trade Plastic 477
+	fleet "Small Northern Merchants" 1000
+	fleet "Large Northern Merchants" 3000
+	fleet "Small Republic" 1500
+	fleet "Large Republic" 4400
+	fleet "Republic Logistics" 4600
+	fleet "Small Northern Pirates" 2000
+	fleet "Large Northern Pirates" 2000
+	fleet "Human Miners" 3000
+	object
+		sprite star/g0
+		period 10
+	object
+		sprite planet/desert8
+		distance 207.61
+		period 36.41
+	object
+		sprite planet/cloud4-b
+		distance 626.61
+		period 190.917
+	object Shroud
+		sprite planet/venus
+		distance 947.77
+		period 355.142
+	object
+		sprite planet/gas13
+		distance 2035.77
+		period 1118
+		object "Triton Station"
+			sprite planet/station2
+			distance 261
+			period 11.3132
+
+system Alhena
+	pos -430 -80
+	government Republic
+	habitable 945
+	belt 1078
+	haze _menu/haze-67
+	link Menkalinan
+	link Wazn
+	asteroids "small rock" 21 8.7906
+	asteroids "medium rock" 14 5.98
+	asteroids "large rock" 1 6.3986
+	asteroids "medium metal" 6 5.5614
+	asteroids "large metal" 1 6.6976
+	minables iron 2 8.5773
+	minables lead 1 14.4573
+	minables uranium 2 7.51131
+	trade Clothing 315
+	trade Electronics 788
+	trade Equipment 654
+	trade Food 455
+	trade "Heavy Metals" 1071
+	trade Industrial 792
+	trade "Luxury Goods" 1427
+	trade Medical 567
+	trade Metal 313
+	trade Plastic 415
+	fleet "Small Northern Merchants" 500
+	fleet "Large Northern Merchants" 700
+	fleet "Small Republic" 1100
+	fleet "Large Republic" 1600
+	fleet "Republic Logistics" 3000
+	object
+		sprite star/g5
+		distance 32.1693
+		period 12.0484
+		offset 180
+	object
+		sprite star/k5
+		distance 62.8307
+		period 12.0484
+	object
+		sprite planet/rock19-b
+		distance 297.521
+		period 66.7759
+	object
+		sprite planet/desert3
+		distance 670.931
+		period 226.131
+		object
+			sprite planet/ice7
+			distance 165
+			period 18.6894
+	object Mainsail
+		sprite planet/ice5
+		distance 1101.93
+		period 475.966
+	object
+		sprite planet/ice8
+		distance 1500.97
+		period 756.663
+	object
+		sprite planet/gas13
+		distance 3469.58
+		period 2659.25
+		object
+			sprite planet/io-b
+			distance 275
+			period 12.2356
+
+system Alioth
+	pos -620 315
+	government Republic
+	habitable 455.625
+	belt 1889
+	link Wei
+	link Vindemiatrix
+	link Alphecca
+	link Holeb
+	asteroids "small metal" 5 4.0832
+	asteroids "medium metal" 2 4.048
+	asteroids "large metal" 4 3.7664
+	minables copper 1 4.44449
+	trade Clothing 293
+	trade Electronics 795
+	trade Equipment 446
+	trade Food 143
+	trade "Heavy Metals" 1075
+	trade Industrial 618
+	trade "Luxury Goods" 1126
+	trade Medical 791
+	trade Metal 537
+	trade Plastic 458
+	fleet "Small Southern Merchants" 400
+	fleet "Large Southern Merchants" 600
+	fleet "Small Militia" 900
+	fleet "Small Southern Pirates" 1200
+	fleet "Large Southern Pirates" 2400
+	object
+		sprite star/k0
+		period 10
+	object
+		sprite planet/fog0
+		distance 236.5
+		period 68.1558
+	object "New Tibet"
+		sprite planet/forest1
+		distance 516.34
+		period 219.867
+	object
+		sprite planet/cloud8-b
+		distance 1370.23
+		period 950.488
+		object
+			sprite planet/dust3
+			distance 146
+			period 20.1302
+	object
+		sprite planet/dust4
+		distance 2197.72
+		period 1930.7
+
+system Alkaid
+	pos -825 318
+	government Republic
+	habitable 1080
+	belt 1142
+	haze _menu/haze-67
+	link Hadar
+	asteroids "medium rock" 7 5.2164
+	asteroids "large rock" 3 3.1464
+	asteroids "medium metal" 13 3.9744
+	asteroids "large metal" 2 4.8852
+	minables neodymium 3 4.36212
+	trade Clothing 329
+	trade Electronics 720
+	trade Equipment 632
+	trade Food 154
+	trade "Heavy Metals" 1023
+	trade Industrial 833
+	trade "Luxury Goods" 1114
+	trade Medical 624
+	trade Metal 535
+	trade Plastic 305
+	fleet "Small Southern Merchants" 1600
+	fleet "Large Southern Merchants" 5000
+	fleet "Small Southern Pirates" 2400
+	fleet "Large Southern Pirates" 5000
+	fleet "Human Miners" 3000
+	object
+		sprite star/g0
+		period 10
+	object
+		sprite planet/cloud5
+		distance 363.84
+		period 84.4722
+		object
+			sprite planet/mercury
+			distance 221
+			period 20.4066
+	object Thunder
+		sprite planet/ocean1
+		distance 934.8
+		period 347.877
+		object
+			sprite planet/luna
+			distance 178
+			period 22.7102
+	object
+		sprite planet/gas0
+		distance 1927.89
+		period 1030.32
+		object
+			sprite planet/dust3-b
+			distance 266
+			period 12.0683
+		object
+			sprite planet/dust1-b
+			distance 389
+			period 21.3426
+		object
+			sprite planet/dust2-b
+			distance 508
+			period 31.8507
+		object
+			sprite planet/oberon-b
+			distance 611
+			period 42.0132
+
+system Almaaz
+	pos -349 -538
+	government Pirate
+	habitable 1080
+	belt 1873
+	haze _menu/haze-33
+	link Hatysa
+	link Mintaka
+	link Unagi
+	asteroids "small rock" 34 4.8195
+	asteroids "medium rock" 17 6.5772
+	asteroids "large rock" 33 4.3659
+	asteroids "small metal" 1 3.6288
+	asteroids "large metal" 1 7.2576
+	minables iron 7 7.81811
+	minables silicon 6 9.57028
+	minables silver 4 6.29355
+	trade Clothing 253
+	trade Electronics 841
+	trade Equipment 511
+	trade Food 226
+	trade "Heavy Metals" 1142
+	trade Industrial 754
+	trade "Luxury Goods" 1073
+	trade Medical 814
+	trade Metal 523
+	trade Plastic 308
+	fleet "Small Northern Pirates" 500
+	fleet "Large Northern Pirates" 600
+	fleet "Large Republic" 4000
+	object
+		sprite star/g0
+		period 10
+	object
+		sprite planet/rock10-b
+		distance 186.96
+		period 31.1151
+	object
+		sprite planet/ganymede
+		distance 588.37
+		period 173.71
+	object Freedom
+		sprite planet/cloud2
+		distance 930.93
+		period 345.719
+
+system Almach
+	pos -7 232
+	government Pirate
+	habitable 320
+	belt 1914
+	haze _menu/haze-133
+	link Schedar
+	asteroids "small rock" 105 2.2763
+	asteroids "medium rock" 54 1.5028
+	asteroids "large rock" 47 1.6133
+	asteroids "small metal" 20 1.4365
+	asteroids "medium metal" 4 3.0719
+	asteroids "large metal" 5 1.5249
+	minables iron 2 2.87775
+	minables lead 2 3.17637
+	minables silicon 30 2.47255
+	trade Clothing 364
+	trade Electronics 664
+	trade Equipment 601
+	trade Food 298
+	trade "Heavy Metals" 889
+	trade Industrial 754
+	trade "Luxury Goods" 962
+	trade Medical 746
+	trade Metal 338
+	trade Plastic 266
+	fleet "Small Core Pirates" 500
+	fleet "Large Core Pirates" 1400
+	fleet "Large Syndicate" 6000
+	fleet "Korath Raid" 20000
+	object
+		sprite star/k5
+		period 10
+	object
+		sprite planet/desert8
+		distance 197.61
+		period 62.1153
+	object "Deadman's Cove"
+		sprite planet/ocean9
+		distance 639.82
+		period 361.886
+		object
+			sprite planet/ice8-b
+			distance 168
+			period 20.8235
+	object
+		sprite planet/jupiter
+		distance 1628.43
+		period 1469.4
+		object
+			sprite planet/luna-b
+			distance 253
+			period 11.6169
+		object
+			sprite planet/europa
+			distance 352
+			period 19.0644
+		object
+			sprite planet/dust2
+			distance 442
+			period 26.8252
+
+system Alnair
+	pos -272 314
+	government Syndicate
+	habitable 135
+	belt 1969
+	haze _menu/haze-133
+	link Persian
+	link Alderamin
+	asteroids "small rock" 20 6.825
+	asteroids "medium rock" 242 4.355
+	asteroids "large rock" 19 8.32
+	asteroids "medium metal" 34 6.695
+	asteroids "large metal" 28 5.72
+	minables aluminum 11 8.95654
+	minables lead 74 6.44632
+	minables platinum 6 9.6188
+	trade Clothing 294
+	trade Electronics 711
+	trade Equipment 381
+	trade Food 529
+	trade "Heavy Metals" 866
+	trade Industrial 718
+	trade "Luxury Goods" 1033
+	trade Medical 494
+	trade Metal 241
+	trade Plastic 467
+	fleet "Small Core Merchants" 2000
+	fleet "Small Core Pirates" 3000
+	fleet "Large Core Pirates" 4000
+	fleet "Small Syndicate" 4000
+	fleet "Large Syndicate" 6000
+	fleet "Human Miners" 2000
+	object
+		sprite star/m4
+		period 10
+	object Hippocrates
+		sprite planet/cloud4
+		distance 160.25
+		period 69.8377
+	object
+		sprite planet/lava7-b
+		distance 614.29
+		period 524.147
+	object
+		sprite planet/gas17-b
+		distance 1355.45
+		period 1717.98
+		object
+			sprite planet/oberon
+			distance 214
+			period 12.6298
+		object
+			sprite planet/rock17-b
+			distance 314
+			period 22.4475
+		object
+			sprite planet/mercury
+			distance 417
+			period 34.3541
+	object
+		sprite planet/gas5-b
+		distance 2418.94
+		period 4095.72
+		object
+			sprite planet/europa
+			distance 274
+			period 13.5997
+
+system Alnasl
+	pos -553 380
+	government Republic
+	habitable 640
+	belt 1412
+	haze _menu/haze-133
+	link Seginus
+	link Wei
+	link "Kaus Borealis"
+	link Eber
+	asteroids "medium rock" 1 1.4784
+	asteroids "large rock" 1 3.5112
+	asteroids "small metal" 15 3.2208
+	asteroids "medium metal" 10 3.3528
+	asteroids "large metal" 4 1.7688
+	minables aluminum 4 3.53834
+	minables iron 2 4.61991
+	trade Clothing 296
+	trade Electronics 655
+	trade Equipment 398
+	trade Food 236
+	trade "Heavy Metals" 1084
+	trade Industrial 650
+	trade "Luxury Goods" 1073
+	trade Medical 740
+	trade Metal 460
+	trade Plastic 459
+	fleet "Small Southern Merchants" 1000
+	fleet "Large Southern Merchants" 2000
+	fleet "Small Militia" 3000
+	fleet "Large Militia" 6000
+	fleet "Small Southern Pirates" 4000
+	object
+		sprite star/k5
+		distance 41.5
+		period 11.956
+		offset 180
+	object
+		sprite star/k5-old
+		distance 41.5
+		period 11.956
+	object
+		sprite planet/gas16-b
+		distance 764.39
+		period 334.151
+		object
+			sprite planet/lava1-b
+			distance 226
+			period 16.7465
+		object
+			sprite planet/dust1-b
+			distance 386
+			period 37.3803
+		object
+			sprite planet/rock14
+			distance 508
+			period 56.4362
+	object
+		sprite planet/gas3-b
+		distance 1788.8
+		period 1196.22
+
+system Alnilam
+	pos -487 -513
+	government Pirate
+	habitable 1715
+	belt 1099
+	haze _menu/haze-33
+	link Hatysa
+	asteroids "small rock" 1 2.166
+	asteroids "medium rock" 30 1.6245
+	asteroids "large rock" 1 3.192
+	asteroids "small metal" 42 1.5675
+	asteroids "medium metal" 15 3.3345
+	asteroids "large metal" 11 3.363
+	minables aluminum 13 2.6002
+	minables iron 4 2.28631
+	minables silicon 15 2.97138
+	trade Clothing 264
+	trade Electronics 707
+	trade Equipment 537
+	trade Food 154
+	trade "Heavy Metals" 1231
+	trade Industrial 739
+	trade "Luxury Goods" 946
+	trade Medical 880
+	trade Metal 520
+	trade Plastic 334
+	fleet "Small Northern Pirates" 500
+	fleet "Large Northern Pirates" 700
+	fleet "Large Republic" 10000
+	object
+		sprite star/f5
+		period 10
+	object
+		sprite planet/desert1
+		distance 224.69
+		period 32.5315
+	object
+		sprite planet/gas7-b
+		distance 966.7
+		period 290.312
+		object
+			sprite planet/miranda-b
+			distance 220
+			period 10.5884
+		object
+			sprite planet/luna
+			distance 305
+			period 17.2841
+	object Zenith
+		sprite planet/ocean7
+		distance 1776.59
+		period 723.284
+		object
+			sprite planet/ice8
+			distance 136
+			period 16.5247
+	object
+		sprite planet/gas2
+		distance 2758.68
+		period 1399.52
+		object
+			sprite planet/dust1-b
+			distance 200
+			period 12.5708
+		object
+			sprite planet/lava0-b
+			distance 330
+			period 26.6433
+		object
+			sprite planet/dust7
+			distance 440
+			period 41.0201
+		object
+			sprite planet/desert4
+			distance 575
+			period 61.2801
+
+system Alnitak
+	pos -331 -412
+	government Republic
+	habitable 349.375
+	belt 1907
+	haze _menu/haze-67
+	link Rigel
+	link Mintaka
+	link Saiph
+	asteroids "small rock" 1 5.4375
+	asteroids "medium rock" 24 4.6875
+	asteroids "large rock" 14 9.25
+	asteroids "small metal" 34 6.5
+	asteroids "medium metal" 42 6.75
+	asteroids "large metal" 12 4
+	trade Clothing 314
+	trade Electronics 805
+	trade Equipment 595
+	trade Food 445
+	trade "Heavy Metals" 1186
+	trade Industrial 656
+	trade "Luxury Goods" 1188
+	trade Medical 809
+	trade Metal 318
+	trade Plastic 452
+	fleet "Small Northern Pirates" 3000
+	fleet "Large Northern Pirates" 5000
+	fleet "Small Republic" 3000
+	fleet "Large Republic" 4000
+	fleet "Republic Logistics" 6000
+	object
+		sprite star/m0
+		distance 31.1055
+		period 15.4564
+	object
+		sprite star/m4
+		distance 49.3945
+		period 15.4564
+		offset 180
+	object Farpoint
+		sprite planet/forest0-b
+		distance 292.484
+		period 107.045
+	object
+		sprite planet/gas13-b
+		distance 851.724
+		period 531.94
+	object
+		sprite planet/rock7
+		distance 1223.93
+		period 916.329
+	object
+		sprite planet/gas1
+		distance 2144.82
+		period 2125.7
+
+system Alniyat
+	pos -691 501
+	government Republic
+	habitable 534.375
+	belt 1760
+	link Pherkad
+	link Graffias
+	link Antares
+	link Han
+	link Dschubba
+	link Aldhibain
+	asteroids "small rock" 19 10.368
+	asteroids "medium rock" 148 6.156
+	asteroids "large rock" 37 4.455
+	asteroids "small metal" 2 9.072
+	asteroids "medium metal" 4 4.941
+	asteroids "large metal" 1 4.455
+	minables aluminum 1 8.00281
+	trade Clothing 314
+	trade Electronics 768
+	trade Equipment 413
+	trade Food 170
+	trade "Heavy Metals" 1042
+	trade Industrial 662
+	trade "Luxury Goods" 1057
+	trade Medical 880
+	trade Metal 467
+	trade Plastic 372
+	fleet "Small Southern Merchants" 500
+	fleet "Large Southern Merchants" 700
+	fleet "Small Southern Pirates" 2000
+	fleet "Large Southern Pirates" 4000
+	fleet "Small Militia" 800
+	fleet "Large Militia" 3000
+	object
+		sprite star/k5
+		distance 41.9222
+		period 18.4847
+	object
+		sprite star/m0
+		distance 62.5778
+		period 18.4847
+		offset 180
+	object
+		sprite planet/cloud0-b
+		distance 363.078
+		period 119.712
+		object Twinstar
+			sprite planet/rock3
+			distance 142
+			period 19.3086
+	object
+		sprite planet/desert7-b
+		distance 718.168
+		period 333.024
+	object
+		sprite planet/mars-b
+		distance 1176.81
+		period 698.546
+	object
+		sprite planet/jupiter
+		distance 1943.65
+		period 1482.73
+		object
+			sprite planet/lava1
+			distance 304
+			period 15.301
+		object
+			sprite planet/ice0
+			distance 432
+			period 25.92
+
+system "Alpha Arae"
+	pos -481 394
+	government Republic
+	habitable 945
+	belt 1405
+	link "Delta Sagittarii"
+	link Rastaban
+	link "Kaus Borealis"
+	link Eber
+	asteroids "small rock" 1 1.302
+	asteroids "medium rock" 26 3.129
+	asteroids "large rock" 28 1.974
+	asteroids "small metal" 33 2.058
+	asteroids "medium metal" 18 1.68
+	asteroids "large metal" 9 1.932
+	minables silicon 10 3.80746
+	trade Clothing 245
+	trade Electronics 707
+	trade Equipment 483
+	trade Food 298
+	trade "Heavy Metals" 982
+	trade Industrial 752
+	trade "Luxury Goods" 1175
+	trade Medical 723
+	trade Metal 395
+	trade Plastic 314
+	fleet "Small Southern Merchants" 1800
+	fleet "Large Southern Merchants" 6000
+	fleet "Small Militia" 4000
+	fleet "Large Militia" 9000
+	fleet "Small Southern Pirates" 4000
+	fleet "Large Southern Pirates" 9000
+	object
+		sprite star/g5
+		distance 31.1534
+		period 11.4822
+		offset 180
+	object
+		sprite star/k5
+		distance 60.8466
+		period 11.4822
+	object
+		sprite planet/fog0-b
+		distance 433.097
+		period 117.279
+		object
+			sprite planet/dust0
+			distance 166
+			period 14.1602
+	object
+		sprite planet/ocean5
+		distance 788.507
+		period 288.106
+	object
+		sprite planet/gas8
+		distance 1302.15
+		period 611.412
+		object
+			sprite planet/dust2-b
+			distance 233
+			period 17.5306
+	object
+		sprite planet/dust4-b
+		distance 1852.15
+		period 1037.19
+	object
+		sprite planet/desert4
+		distance 2940.4
+		period 2074.69
+
+system "Alpha Centauri"
+	pos -429 125
+	government Republic
+	habitable 320
+	belt 1116
+	haze _menu/haze-67
+	link Sol
+	asteroids "small rock" 1 1.944
+	asteroids "medium rock" 2 5.04
+	asteroids "large rock" 1 1.8
+	asteroids "medium metal" 10 4.428
+	asteroids "large metal" 1 3.168
+	minables copper 1 5.07974
+	minables lead 4 6.13217
+	trade Clothing 262
+	trade Electronics 695
+	trade Equipment 523
+	trade Food 550
+	trade "Heavy Metals" 874
+	trade Industrial 667
+	trade "Luxury Goods" 1094
+	trade Medical 498
+	trade Metal 393
+	trade Plastic 253
+	fleet "Small Northern Merchants" 800
+	fleet "Large Northern Merchants" 1000
+	fleet "Small Republic" 2000
+	fleet "Large Republic" 6000
+	object
+		sprite star/k5
+		distance 26.7033
+		period 16.011
+		offset 180
+	object
+		sprite star/m4
+		distance 63.2967
+		period 16.011
+	object Chiron
+		sprite planet/forest1
+		distance 346.547
+		period 120.975
+		object
+			sprite planet/rock17
+			distance 126
+			period 14.7361
+	object
+		sprite planet/desert2
+		distance 749.037
+		period 384.423
+	object
+		sprite planet/oberon
+		distance 976.197
+		period 571.953
+	object
+		sprite planet/rock15-b
+		distance 1718.2
+		period 1335.56
+	object
+		sprite planet/gas13
+		distance 4080.61
+		period 4888.11
+
+system "Alpha Hydri"
+	pos -97 98
+	government Syndicate
+	habitable 1400
+	belt 1839
+	haze _menu/haze-133
+	link Ruchbah
+	asteroids "medium rock" 1 7.467
+	asteroids "large rock" 1 7.125
+	asteroids "large metal" 1 7.752
+	trade Clothing 352
+	trade Electronics 721
+	trade Equipment 555
+	trade Food 236
+	trade "Heavy Metals" 714
+	trade Industrial 859
+	trade "Luxury Goods" 1132
+	trade Medical 531
+	trade Metal 324
+	trade Plastic 390
+	fleet "Small Core Merchants" 900
+	fleet "Large Core Merchants" 3000
+	fleet "Small Core Pirates" 2000
+	fleet "Large Core Pirates" 6000
+	fleet "Small Syndicate" 4000
+	fleet "Large Syndicate" 9000
+	fleet "Korath Raid" 40000
+	object
+		sprite star/g0
+		distance 24.6857
+		period 11.9986
+	object
+		sprite star/k5
+		distance 83.3143
+		period 11.9986
+		offset 180
+	object
+		sprite planet/rock5-b
+		distance 287.674
+		period 52.1612
+	object
+		sprite planet/gas12-b
+		distance 846.484
+		period 263.284
+	object Nimbus
+		sprite planet/ocean1
+		distance 1376.64
+		period 546.045
+	object
+		sprite planet/gas7
+		distance 2334.93
+		period 1206.17
+
+system Alphard
+	pos -588 -47
+	government Republic
+	habitable 1080.62
+	belt 1101
+	link Algieba
+	link Zosma
+	link Miaplacidus
+	link Talita
+	asteroids "small rock" 2 7.7896
+	asteroids "medium rock" 33 8.8088
+	asteroids "large rock" 2 7.4984
+	asteroids "small metal" 5 5.3872
+	asteroids "medium metal" 83 10.2648
+	asteroids "large metal" 6 6.9888
+	minables aluminum 22 15.8087
+	minables lead 16 18.6376
+	minables titanium 14 15.6458
+	trade Clothing 326
+	trade Electronics 673
+	trade Equipment 682
+	trade Food 565
+	trade "Heavy Metals" 1048
+	trade Industrial 629
+	trade "Luxury Goods" 1461
+	trade Medical 665
+	trade Metal 284
+	trade Plastic 496
+	fleet "Small Northern Merchants" 500
+	fleet "Large Northern Merchants" 900
+	fleet "Paradise Merchants" 1500
+	fleet "Small Deep Merchants" 2000
+	fleet "Small Republic" 3000
+	fleet "Large Republic" 6000
+	fleet "Republic Logistics" 6000
+	fleet "Human Miners" 2000
+	object
+		sprite star/g5
+		distance 41.5307
+		period 11.8953
+		offset 180
+	object
+		sprite star/k0
+		distance 56.9693
+		period 11.8953
+	object
+		sprite planet/desert1
+		distance 325.709
+		period 71.5266
+	object
+		sprite planet/dust6
+		distance 627.949
+		period 191.474
+	object Follower
+		sprite planet/cloud2
+		distance 925.199
+		period 342.433
+	object
+		sprite planet/dust3
+		distance 1445.56
+		period 668.769
+	object
+		sprite planet/tethys
+		distance 2496.56
+		period 1517.87
+
+system Alphecca
+	pos -546 308
+	government Republic
+	habitable 1400
+	belt 1101
+	link Alioth
+	link Seginus
+	link Boral
+	asteroids "large metal" 1 4.3296
+	trade Clothing 343
+	trade Electronics 799
+	trade Equipment 399
+	trade Food 171
+	trade "Heavy Metals" 1092
+	trade Industrial 581
+	trade "Luxury Goods" 1093
+	trade Medical 816
+	trade Metal 543
+	trade Plastic 498
+	fleet "Small Southern Merchants" 2000
+	fleet "Large Southern Merchants" 3500
+	fleet "Small Southern Pirates" 3000
+	fleet "Small Militia" 5000
+	object
+		sprite star/g0
+		distance 27.8857
+		period 14.4057
+		offset 180
+	object
+		sprite star/k5
+		distance 94.1143
+		period 14.4057
+	object
+		sprite planet/lava2-b
+		distance 350.114
+		period 70.0343
+	object
+		sprite planet/gas17-b
+		distance 693.404
+		period 195.198
+	object "New Holland"
+		sprite planet/cloud3
+		distance 1209.16
+		period 449.494
+	object
+		sprite planet/rock17
+		distance 2097.32
+		period 1026.82
+
+system Alpheratz
+	pos -176 125
+	government Syndicate
+	habitable 1080.62
+	belt 1645
+	haze _menu/haze-133
+	link "Al Dhanab"
+	link Ruchbah
+	link Achernar
+	asteroids "small rock" 8 5.44
+	asteroids "medium rock" 5 4.12
+	asteroids "large rock" 1 3.48
+	asteroids "small metal" 1 2.28
+	asteroids "medium metal" 6 3.88
+	asteroids "large metal" 1 3.8
+	minables lead 2 6.58617
+	minables silicon 5 5.83737
+	trade Clothing 205
+	trade Electronics 751
+	trade Equipment 567
+	trade Food 240
+	trade "Heavy Metals" 694
+	trade Industrial 759
+	trade "Luxury Goods" 1072
+	trade Medical 713
+	trade Metal 340
+	trade Plastic 293
+	fleet "Small Core Merchants" 600
+	fleet "Large Core Merchants" 600
+	fleet "Small Syndicate" 800
+	fleet "Large Syndicate" 2000
+	fleet "Small Core Pirates" 1200
+	fleet "Large Core Pirates" 3000
+	object
+		sprite star/g5
+		distance 48.2767
+		period 14.9084
+	object
+		sprite star/k0
+		distance 66.2233
+		period 14.9084
+		offset 180
+	object
+		sprite planet/fog0
+		distance 306.613
+		period 65.3294
+	object Moonshake
+		sprite planet/forest4
+		distance 858.853
+		period 306.268
+		object
+			sprite planet/rock14-b
+			distance 173
+			period 18.5791
+	object
+		sprite planet/dust0
+		distance 1246.89
+		period 535.755
+	object
+		sprite planet/gas13-b
+		distance 1763.13
+		period 900.845
+		object
+			sprite planet/oberon
+			distance 285
+			period 12.909
+
+system Altair
+	pos -357 161
+	government Republic
+	habitable 945
+	belt 1830
+	link Vega
+	link Sol
+	link "Delta Capricorni"
+	link Fomalhaut
+	asteroids "large metal" 1 4.6748
+	trade Clothing 378
+	trade Electronics 806
+	trade Equipment 500
+	trade Food 472
+	trade "Heavy Metals" 781
+	trade Industrial 605
+	trade "Luxury Goods" 1048
+	trade Medical 534
+	trade Metal 335
+	trade Plastic 274
+	fleet "Small Core Merchants" 400
+	fleet "Large Core Merchants" 600
+	fleet "Small Northern Merchants" 1000
+	fleet "Large Northern Merchants" 3000
+	fleet "Small Republic" 3000
+	fleet "Large Republic" 6000
+	fleet "Republic Logistics" 6000
+	fleet "Small Syndicate" 9000
+	object
+		sprite star/g5
+		distance 31.4921
+		period 11.6699
+		offset 180
+	object
+		sprite star/k5
+		distance 61.5079
+		period 11.6699
+	object
+		sprite planet/water0
+		distance 242.318
+		period 49.082
+	object
+		sprite planet/desert4
+		distance 468.568
+		period 131.978
+	object
+		sprite planet/rock13-b
+		distance 698.458
+		period 240.19
+	object Shiver
+		sprite planet/cloud8
+		distance 1210.95
+		period 548.318
+		object
+			sprite planet/rock17-b
+			distance 120
+			period 15
+	object
+		sprite planet/europa
+		distance 2223.95
+		period 1364.68
+
+system Aludra
+	pos -606 -374
+	government Republic
+	habitable 455.625
+	belt 1511
+	haze _menu/haze-33
+	link Naos
+	asteroids "small rock" 2 3.8394
+	asteroids "large rock" 7 2.4786
+	asteroids "small metal" 2 7.1442
+	asteroids "large metal" 6 3.402
+	minables copper 2 3.7707
+	minables neodymium 2 5.17388
+	minables silicon 2 4.70507
+	trade Clothing 227
+	trade Electronics 683
+	trade Equipment 454
+	trade Food 385
+	trade "Heavy Metals" 986
+	trade Industrial 788
+	trade "Luxury Goods" 1046
+	trade Medical 703
+	trade Metal 392
+	trade Plastic 289
+	fleet "Small Deep Security" 1800
+	fleet "Small Deep Merchants" 500
+	fleet "Large Deep Security" 3000
+	fleet "Large Deep Merchants" 1000
+	fleet "Small Northern Merchants" 500
+	fleet "Large Northern Merchants" 1200
+	fleet "Human Miners" 5000
+	object
+		sprite star/k0
+		period 10
+	object
+		sprite planet/desert10-b
+		distance 162.5
+		period 38.8183
+	object Midgard
+		sprite planet/forest5-b
+		distance 449.99
+		period 178.879
+	object
+		sprite planet/luna
+		distance 1180.4
+		period 759.976
+	object
+		sprite planet/rock1-b
+		distance 1669.4
+		period 1278.19
+	object
+		sprite planet/neptune-b
+		distance 2759.01
+		period 2715.73
+		object
+			sprite planet/dust1
+			distance 241
+			period 16.6281
+		object
+			sprite planet/dust5-b
+			distance 375
+			period 32.2749
+
+system "Ancient Hope"
+	pos -1159.59 702.051
+	government Coalition
+	habitable 455
+	belt 1439
+	haze _menu/haze-67
+	link "Sol Saryd"
+	link "Far Horizon"
+	asteroids "small rock" 14 8.1374
+	asteroids "medium rock" 11 5.2693
+	asteroids "large rock" 6 4.9358
+	asteroids "large metal" 3 8.5376
+	minables aluminum 6 11.3536
+	minables uranium 1 6.83108
+	trade Clothing 314
+	trade Electronics 699
+	trade Equipment 388
+	trade Food 170
+	trade "Heavy Metals" 883
+	trade Industrial 635
+	trade "Luxury Goods" 1039
+	trade Medical 474
+	trade Metal 359
+	trade Plastic 507
+	fleet "Small Arach" 1000
+	fleet "Large Arach" 2000
+	fleet "Small Kimek" 1100
+	fleet "Large Kimek" 2400
+	fleet "Small Saryd" 500
+	fleet "Large Saryd" 1400
+	fleet Heliarch 1500
+	object
+		sprite star/m0
+		distance 25.5165
+		period 14.9555
+	object
+		sprite star/m8
+		distance 60.4835
+		period 14.9555
+		offset 180
+	object
+		sprite planet/rock9
+		distance 241.734
+		period 70.479
+	object "Bright Echo"
+		sprite planet/forest4-b
+		distance 596.624
+		period 273.278
+	object
+		sprite planet/gas12-b
+		distance 1406.78
+		period 989.453
+		object
+			sprite planet/lava0
+			distance 281
+			period 12.3721
+		object
+			sprite planet/rock3-b
+			distance 392
+			period 20.3852
+	object
+		sprite planet/gas4-b
+		distance 3035.42
+		period 3136.05
+		object
+			sprite planet/dust4
+			distance 255
+			period 14.3618
+
+system Ankaa
+	pos -230 100
+	government Syndicate
+	habitable 625
+	belt 1003
+	haze _menu/haze-133
+	link Markab
+	link Diphda
+	link Ruchbah
+	asteroids "medium rock" 1 2.016
+	asteroids "large rock" 1 1.664
+	asteroids "small metal" 1 4.352
+	asteroids "medium metal" 7 2.176
+	asteroids "large metal" 1 2.912
+	minables aluminum 1 3.23798
+	minables silicon 1 3.14899
+	trade Clothing 296
+	trade Electronics 671
+	trade Equipment 467
+	trade Food 359
+	trade "Heavy Metals" 650
+	trade Industrial 783
+	trade "Luxury Goods" 1176
+	trade Medical 596
+	trade Metal 278
+	trade Plastic 353
+	fleet "Small Core Merchants" 600
+	fleet "Large Core Merchants" 700
+	fleet "Small Syndicate" 900
+	fleet "Large Core Pirates" 4000
+	object
+		sprite star/g5
+		period 10
+	object
+		sprite planet/rock4-b
+		distance 214.69
+		period 50.3312
+	object Lodestone
+		sprite planet/rock18
+		distance 563.78
+		period 214.183
+	object
+		sprite planet/dust3
+		distance 997.42
+		period 504.008
+	object
+		sprite planet/ice0
+		distance 1347.43
+		period 791.369
+	object
+		sprite planet/rock0-b
+		distance 2059.68
+		period 1495.61
+
+system Answer
+	pos -1086.59 631.051
+	government Coalition
+	habitable 425.92
+	belt 1636
+	haze _menu/haze-none
+	link "Bright Void"
+	asteroids "medium rock" 2 6.279
+	asteroids "large rock" 3 6.578
+	asteroids "small metal" 16 6.8172
+	asteroids "medium metal" 32 6.8172
+	asteroids "large metal" 24 8.5514
+	minables copper 7 13.583
+	minables neodymium 6 9.23127
+	minables tungsten 18 7.44324
+	trade Clothing 221
+	trade Electronics 703
+	trade Equipment 385
+	trade Food 476
+	trade "Heavy Metals" 790
+	trade Industrial 751
+	trade "Luxury Goods" 972
+	trade Medical 475
+	trade Metal 513
+	trade Plastic 324
+	fleet "Small Arach" 1000
+	fleet "Large Arach" 3000
+	fleet "Small Kimek" 400
+	fleet "Large Kimek" 800
+	fleet "Small Saryd" 600
+	fleet "Large Saryd" 1200
+	fleet Heliarch 1400
+	object
+		sprite star/k5
+		period 10
+	object
+		sprite planet/tethys-b
+		distance 181
+		period 47.1969
+	object "New Finding"
+		sprite planet/ocean7
+		distance 345.84
+		period 124.655
+	object
+		sprite planet/gas4
+		distance 1076.6
+		period 684.664
+		object
+			sprite planet/rock7
+			distance 233
+			period 12.5439
+		object
+			sprite planet/oberon
+			distance 341
+			period 22.209
+		object
+			sprite planet/ice0-b
+			distance 504
+			period 39.9065
+	object
+		sprite planet/gas11
+		distance 2097.09
+		period 1861.32
+
+system Antares
+	pos -711 541
+	government Pirate
+	habitable 455.625
+	belt 1778
+	haze _menu/haze-67
+	link Alniyat
+	asteroids "small rock" 10 3.8556
+	asteroids "medium rock" 17 1.89
+	asteroids "large rock" 5 3.0996
+	asteroids "small metal" 1 3.1752
+	asteroids "medium metal" 4 3.0996
+	asteroids "large metal" 3 5.1786
+	minables iron 1 5.1176
+	minables lead 8 3.07041
+	minables silicon 8 4.38126
+	trade Clothing 242
+	trade Electronics 804
+	trade Equipment 432
+	trade Food 190
+	trade "Heavy Metals" 1034
+	trade Industrial 622
+	trade "Luxury Goods" 1058
+	trade Medical 896
+	trade Metal 473
+	trade Plastic 403
+	fleet "Small Southern Pirates" 1000
+	fleet "Large Southern Pirates" 2000
+	fleet "Large Militia" 5000
+	object
+		sprite star/k0
+		period 10
+	object
+		sprite planet/ice5-b
+		distance 195.59
+		period 51.2597
+	object Bloodsea
+		sprite planet/cloud7
+		distance 440.84
+		period 173.451
+	object
+		sprite planet/gas11
+		distance 1239.6
+		period 817.859
+		object
+			sprite planet/dust1-b
+			distance 266
+			period 13.5253
+		object
+			sprite planet/lava1-b
+			distance 407
+			period 25.5986
+		object
+			sprite planet/desert4-b
+			distance 571
+			period 42.5381
+	object
+		sprite planet/uranus
+		distance 2778.76
+		period 2744.94
+
+system Antevorta
+	pos -36.1297 446.242
+	government Uninhabited
+	attributes "ember waste"
+	habitable 320
+	belt 1994
+	haze _menu/haze-red
+	link Ossipago
+	link Cardea
+	link Convector
+	link Insitor
+	asteroids "small rock" 1 1.6272
+	asteroids "medium rock" 14 1.2816
+	asteroids "large rock" 1 1.1088
+	asteroids "small metal" 1 1.1664
+	asteroids "medium metal" 6 1.4544
+	asteroids "large metal" 1 1.3248
+	minables silicon 4 2.09623
+	trade Clothing 288
+	trade Electronics 813
+	trade Equipment 544
+	trade Food 238
+	trade "Heavy Metals" 812
+	trade Industrial 660
+	trade "Luxury Goods" 1369
+	trade Medical 697
+	trade Metal 338
+	trade Plastic 469
+	object
+		sprite star/wr
+		period 10
+	object
+		sprite planet/desert8
+		distance 152.41
+		period 42.0732
+	object
+		sprite planet/io
+		distance 449.3
+		period 212.956
+	object
+		sprite planet/lava7-b
+		distance 622.34
+		period 347.158
+	object
+		sprite planet/cloud8
+		distance 1538.34
+		period 1349.16
+	object
+		sprite planet/gas2-b
+		distance 3887.63
+		period 5420.16
+		object
+			sprite planet/dust3
+			distance 178
+			period 14.3895
+		object
+			sprite planet/dust0
+			distance 262
+			period 25.6961
+		object
+			sprite planet/dust1-b
+			distance 391
+			period 46.8468
+
+system Ap'arak
+	pos -164.62 -781.858
+	government Wanderer
+	habitable 1080
+	belt 1385
+	haze _menu/haze-none
+	link Chirr'ay'akai
+	link Sich'ka'ara
+	link Ka'ch'chrai
+	asteroids "medium rock" 6 7.383
+	asteroids "large rock" 2 4.485
+	asteroids "medium metal" 1 7.797
+	asteroids "large metal" 3 5.382
+	minables silicon 2 9.55668
+	trade Clothing 419
+	trade Electronics 652
+	trade Equipment 406
+	trade Food 382
+	trade "Heavy Metals" 1126
+	trade Industrial 763
+	trade "Luxury Goods" 1090
+	trade Medical 636
+	trade Metal 577
+	trade Plastic 452
+	fleet "Wanderer Freight" 500
+	fleet "Wanderer Drones" 2000
+	fleet "Wanderer Defense" 3000
+	object
+		sprite star/g0
+		period 10
+	object
+		sprite planet/gas9-hot
+		distance 262.16
+		period 51.6652
+	object "Varu Tev'kei"
+		sprite planet/desert3
+		distance 804.77
+		period 277.879
+	object
+		sprite planet/gas11-b
+		distance 1880.77
+		period 992.777
+		object
+			sprite planet/rock17
+			distance 246
+			period 12.7257
+		object
+			sprite planet/rhea-b
+			distance 345
+			period 21.1352
+		object
+			sprite planet/dust1
+			distance 464
+			period 32.9651
+
+system Arcturus
+	pos -589 226
+	government Republic
+	habitable 320
+	belt 1422
+	link Mizar
+	link Rutilicus
+	link Holeb
+	asteroids "small rock" 4 2.86
+	asteroids "medium rock" 3 2.508
+	asteroids "large rock" 5 2.288
+	asteroids "small metal" 4 3.234
+	asteroids "medium metal" 5 1.848
+	asteroids "large metal" 4 1.892
+	minables copper 2 3.64174
+	minables lead 5 4.19488
+	minables silicon 3 2.62083
+	trade Clothing 202
+	trade Electronics 833
+	trade Equipment 562
+	trade Food 289
+	trade "Heavy Metals" 918
+	trade Industrial 773
+	trade "Luxury Goods" 1231
+	trade Medical 684
+	trade Metal 416
+	trade Plastic 461
+	fleet "Small Southern Merchants" 700
+	fleet "Large Southern Merchants" 3000
+	fleet "Small Militia" 10000
+	fleet "Human Miners" 5000
+	object
+		sprite star/k5
+		period 10
+	object "New Greenland"
+		sprite planet/ocean1
+		distance 325.36
+		period 131.229
+		object
+			sprite planet/callisto
+			distance 174
+			period 21.949
+	object
+		sprite planet/rock6
+		distance 744.05
+		period 453.825
+	object
+		sprite planet/rock17-b
+		distance 998.54
+		period 705.559
+	object
+		sprite planet/jupiter
+		distance 1514.83
+		period 1318.35
+		object
+			sprite planet/io
+			distance 271
+			period 12.8784
+	object
+		sprite planet/oberon-b
+		distance 3311.92
+		period 4261.91
+
+system Arculus
+	pos 308.87 393.242
+	government Remnant
+	attributes "ember waste"
+	habitable 625
+	belt 1536
+	haze _menu/haze-red
+	link Edusa
+	link Cinxia
+	link Pantica
+	asteroids "medium rock" 2 0.606667
+	asteroids "large metal" 1 1.34167
+	trade Clothing 346
+	trade Electronics 733
+	trade Equipment 676
+	trade Food 512
+	trade "Heavy Metals" 933
+	trade Industrial 780
+	trade "Luxury Goods" 1006
+	trade Medical 510
+	trade Metal 417
+	trade Plastic 498
+	fleet "Large Remnant" 3000
+	fleet "Small Remnant" 2200
+	fleet "Remnant Transport" 2200
+	fleet "Remnant Home Guard" 2000
+	fleet "Korath Ember Waste Raid" 40000
+	object
+		sprite star/g5-old
+		period 10
+	object Seraglio
+		sprite planet/rock13-b
+		distance 209.29
+		period 48.4443
+	object Eminonu
+		sprite planet/rock16-b
+		distance 490.5
+		period 173.811
+		object Babiali
+			sprite planet/desert4-b
+			distance 122
+			period 18.3911
+	object Viminal
+		sprite planet/ocean2
+		distance 923.75
+		period 449.212
+		object Kumkapi
+			sprite planet/io-b
+			distance 162
+			period 17.8986
+	object Xerolophos
+		sprite planet/gas0-hot
+		distance 1734.39
+		period 1155.69
+		object Topkapi
+			sprite planet/tethys-b
+			distance 200
+			period 15.0564
+		object Aksaray
+			sprite planet/miranda-b
+			distance 273
+			period 24.0116
+		object Yedikule
+			sprite planet/ice7
+			distance 431
+			period 47.6313
+	object
+		sprite planet/browndwarf-t
+		distance 3358
+		period 4153
+
+system Arneb
+	pos -523 -580
+	government Pirate
+	habitable 1715
+	belt 1947
+	haze _menu/haze-none
+	link Hatysa
+	asteroids "large rock" 1 5.3055
+	asteroids "small metal" 2 5.2245
+	asteroids "medium metal" 9 4.7385
+	asteroids "large metal" 1 6.0345
+	trade Clothing 365
+	trade Electronics 800
+	trade Equipment 583
+	trade Food 135
+	trade "Heavy Metals" 1210
+	trade Industrial 636
+	trade "Luxury Goods" 1012
+	trade Medical 890
+	trade Metal 566
+	trade Plastic 358
+	fleet "Small Northern Pirates" 400
+	fleet "Large Northern Pirates" 500
+	fleet "Large Republic" 15000
+	object
+		sprite star/f5
+		period 10
+	object
+		sprite planet/venus
+		distance 206
+		period 28.5581
+	object
+		sprite planet/cloud6-b
+		distance 546.25
+		period 123.315
+	object
+		sprite planet/desert8
+		distance 829.46
+		period 230.739
+	object Haven
+		sprite planet/forest6
+		distance 1264.82
+		period 434.481
+	object
+		sprite planet/io
+		distance 4062.31
+		period 2500.85
+
+system Ascella
+	pos -376 328
+	government Republic
+	habitable 640
+	belt 1971
+	haze _menu/haze-133
+	link Peacock
+	link "Zeta Aquilae"
+	link Tais
+	link Rasalhague
+	link Naper
+	asteroids "small rock" 3 1.3328
+	asteroids "medium rock" 258 1.5708
+	asteroids "large rock" 6 1.547
+	asteroids "small metal" 5 2.023
+	asteroids "medium metal" 84 1.19
+	asteroids "large metal" 6 2.6894
+	minables silicon 33 1.74588
+	minables titanium 34 2.91332
+	minables uranium 23 2.68467
+	trade Clothing 337
+	trade Electronics 750
+	trade Equipment 636
+	trade Food 467
+	trade "Heavy Metals" 863
+	trade Industrial 826
+	trade "Luxury Goods" 1363
+	trade Medical 827
+	trade Metal 450
+	trade Plastic 295
+	fleet "Small Southern Merchants" 600
+	fleet "Large Southern Merchants" 1000
+	fleet "Small Militia" 4000
+	fleet "Small Southern Pirates" 3000
+	fleet "Human Miners" 1600
+	object
+		sprite star/k5
+		distance 43.5
+		period 12.8307
+		offset 180
+	object
+		sprite star/k5
+		distance 43.5
+		period 12.8307
+	object Arabia
+		sprite planet/ocean7
+		distance 439.46
+		period 145.663
+		object
+			sprite planet/rock14
+			distance 152
+			period 19.525
+	object
+		sprite planet/miranda-b
+		distance 830.67
+		period 378.541
+	object
+		sprite planet/gas0
+		distance 1677.03
+		period 1085.88
+		object
+			sprite planet/dust5-b
+			distance 273
+			period 12.5478

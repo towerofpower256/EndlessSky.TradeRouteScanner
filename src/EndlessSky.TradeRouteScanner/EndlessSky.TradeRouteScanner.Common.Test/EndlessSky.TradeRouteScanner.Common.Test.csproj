@@ -8,9 +8,11 @@
 
   <ItemGroup>
     <None Remove="TestData\MapBuilder_FullMapRead.txt" />
+    <None Remove="TestData\MapBuilder_PartialMapRead.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="TestData\MapBuilder_PartialMapRead.txt" />
     <EmbeddedResource Include="TestData\MapBuilder_FullMapRead.txt" />
   </ItemGroup>
 

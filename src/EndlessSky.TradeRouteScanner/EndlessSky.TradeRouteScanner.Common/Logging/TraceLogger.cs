@@ -11,7 +11,7 @@ namespace EndlessSky.TradeRouteScanner.Common.Logging
     {
         public void Debug(string msg)
         {
-            Trace.TraceInformation("DEBUG " + msg);
+            //Trace.TraceInformation("DEBUG " + msg);
         }
 
         public void Error(string msg)
