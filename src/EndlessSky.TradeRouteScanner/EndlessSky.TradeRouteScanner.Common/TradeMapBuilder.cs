@@ -11,14 +11,19 @@ namespace EndlessSky.TradeRouteScanner.Common
         public const string NODE_NAME_LINK = "link";
         public const string NODE_NAME_TRADE = "trade";
 
+        public ProgressEventSource ProgressEvents = new ProgressEventSource();
+
         public TradeMap Build(DefNode rootNode)
         {
+            //ProgressEvents.DoEvent(this, new ProgressEventArgs("Starting map load"));
             var map = CreateMap(rootNode);
 
             // TODO handle map with no systems
 
+            ProgressEvents.DoEvent(this, new ProgressEventArgs(0, 0, ProgressEventStatus.Working, $"Completing links..."));
             CompleteLinks(map);
 
+            ProgressEvents.DoEvent(this, new ProgressEventArgs(ProgressEventStatus.Complete, "Map building complete"));
             return map;
         }
 
@@ -26,8 +31,11 @@ namespace EndlessSky.TradeRouteScanner.Common
         {
             var map = new TradeMap();
 
-            foreach (var topNode in rootNode.ChildNodes)
+            //foreach (var topNode in rootNode.ChildNodes)
+            for (int iNode=0; iNode < rootNode.ChildNodes.Count; iNode++) 
             {
+                ProgressEvents.DoEvent(this, new ProgressEventArgs(iNode, rootNode.ChildNodes.Count, ProgressEventStatus.Working, $"Reading node {iNode}"));
+                var topNode = rootNode.ChildNodes[iNode];
                 // Only care about "system" nodes
                 if (topNode.Tokens.Count >= 2 && topNode.Tokens[0] == NODE_NAME_SYSTEM)
                 {

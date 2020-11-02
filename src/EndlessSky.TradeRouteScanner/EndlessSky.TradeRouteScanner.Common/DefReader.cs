@@ -39,6 +39,7 @@ namespace EndlessSky.TradeRouteScanner.Common
         public const char CHAR_QUOTE_QUOTE = '"';
         public const char CHAR_QUOTE_TILDE = '`';
 
+        public ProgressEventSource ProgressEvents = new ProgressEventSource();
         
 
         public DefReader()

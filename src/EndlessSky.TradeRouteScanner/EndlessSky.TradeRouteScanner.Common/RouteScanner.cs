@@ -9,6 +9,8 @@ namespace EndlessSky.TradeRouteScanner.Common
 {
     public class RouteScanner
     {
+        public ProgressEventSource ProgressEvents = new ProgressEventSource();
+
         ILogger _log;
 
         public RouteScanner()
@@ -19,6 +21,11 @@ namespace EndlessSky.TradeRouteScanner.Common
         public void SetLogging(ILogger log)
         {
             _log = log;
+        }
+
+        private void DoProgress(ProgressEventArgs args)
+        {
+            ProgressEvents.DoEvent(this, args);
         }
 
         public RouteScannerResults Scan(TradeMap map)
@@ -42,9 +49,13 @@ namespace EndlessSky.TradeRouteScanner.Common
             // Go through each system in the list, compare comodity prices
             // If the price is greater than the desired threshold, add it to the run list
 
-            foreach (var startSystem in map.Systems)
+            //foreach (var startSystem in map.Systems)
+            for (var iSS=0; iSS < map.Systems.Count; iSS++)
             {
+                var startSystem = map.Systems[iSS];
                 _log.Debug($"Scanning runs for system: {startSystem.Name}");
+                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning runs for '{startSystem.Name}'"));
+
                 // Clear this system's runs, in case
                 startSystem.Runs.Clear();
                 List<TradeMapSystem> seenSystems = new List<TradeMapSystem>();
@@ -105,11 +116,15 @@ namespace EndlessSky.TradeRouteScanner.Common
 
             // Scan for routes
             _log.Info("Starting scan for routes");
-            foreach (var startSystem in map.Systems)
+            //foreach (var startSystem in map.Systems)
+            for (var iSS = 0; iSS < map.Systems.Count; iSS++)
             {
+                var startSystem = map.Systems[iSS];
+                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning routes for '{startSystem.Name}'"));
                 ScanForRoutes(startSystem, r.AllRoutes, options);
             }
 
+            DoProgress(new ProgressEventArgs(ProgressEventStatus.Complete, $"Route scanning complete"));
             return r;
         }
 
@@ -185,11 +200,6 @@ namespace EndlessSky.TradeRouteScanner.Common
                 {
                     _log.Debug("tradeRunQueue empty for this step, going back a level");
                     tradeRunQueueStack.Pop();
-
-                    if (tradeRunStack.Count > 0 && tradeRunQueueStack.Count == 1)
-                    {
-                        var lol = "wut";
-                    }
 
                     if (tradeRunStack.Count > 0)
                     {
