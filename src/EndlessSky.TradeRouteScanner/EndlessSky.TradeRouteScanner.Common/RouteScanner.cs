@@ -36,10 +36,6 @@ namespace EndlessSky.TradeRouteScanner.Common
         public RouteScannerResults Scan(TradeMap map, RouteScannerOptions options)
         {
             _log.Info("Starting route scan");
-            _log.Debug($"RunMaxJumps: {options.RunMaxJumps}");
-            _log.Debug($"RouteMaxStops: {options.RouteMaxStops}");
-            _log.Debug($"MinProfitPerUnit: {options.MinProfitPerUnit}");
-            _log.Debug($"MinProfitPerRouteRun: {options.MinProfitPerRouteRun}");
 
             var r = new RouteScannerResults();
 
@@ -53,8 +49,11 @@ namespace EndlessSky.TradeRouteScanner.Common
             for (var iSS=0; iSS < map.Systems.Count; iSS++)
             {
                 var startSystem = map.Systems[iSS];
+
+                if (!startSystem.CanTrade) continue; // Don't care about system's that can't trade.
+
                 _log.Debug($"Scanning runs for system: {startSystem.Name}");
-                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning runs for '{startSystem.Name}'"));
+                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning runs for '{startSystem.Name}' ({iSS}/{map.Systems.Count})"));
 
                 // Clear this system's runs, in case
                 startSystem.Runs.Clear();
@@ -74,7 +73,6 @@ namespace EndlessSky.TradeRouteScanner.Common
 
                 for (int jumpCount = 1; jumpCount <= options.RunMaxJumps; jumpCount++)
                 {
-                    //_log.Debug($"JUMP {jumpCount}");
                     systemCheckStackNext = new Stack<TradeMapSystem>(); // Ready to compile the next list of jumps
 
                     // Find new systems in the check stack
@@ -83,7 +81,8 @@ namespace EndlessSky.TradeRouteScanner.Common
                         var destSystem = systemCheckStack.Pop();
 
                         // Check for profitable runs to this system
-                        ScanForRuns(startSystem, destSystem, jumpCount, r.AllRuns, options);
+                        if (destSystem.CanTrade) // Avoid systems that have comodity data, but can't actually trade
+                            ScanForRuns(startSystem, destSystem, jumpCount, r.AllRuns, options);
 
                         // Check for jumps away from this system
                         // but only if we're under the jump limit
@@ -120,11 +119,18 @@ namespace EndlessSky.TradeRouteScanner.Common
             for (var iSS = 0; iSS < map.Systems.Count; iSS++)
             {
                 var startSystem = map.Systems[iSS];
-                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning routes for '{startSystem.Name}'"));
+
+                if (options.StartSystems.Count > 0 && !options.StartSystems.Contains(startSystem.Name))
+                {
+                    _log.Debug("Skipping system, not in list of desired start systems");
+                    continue;
+                }
+
+                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning routes for '{startSystem.Name}' ({iSS}/{map.Systems.Count})"));
                 ScanForRoutes(startSystem, r.AllRoutes, options);
             }
 
-            DoProgress(new ProgressEventArgs(ProgressEventStatus.Complete, $"Route scanning complete"));
+            //DoProgress(new ProgressEventArgs(ProgressEventStatus.Complete, $"Route scanning complete"));
             return r;
         }
 
@@ -246,12 +252,37 @@ namespace EndlessSky.TradeRouteScanner.Common
 
                         if (newTradeRoute.Score < options.MinRouteScore)
                         {
-                            _log.Debug($"Skipping route, score {newTradeRoute.Score} min {options.MinRouteScore}");
+                            _log.Debug($"Ignoring route, score {newTradeRoute.Score} min {options.MinRouteScore}");
                         } 
+                        else if (routeCollection.FirstOrDefault(r => r.Hash == newTradeRoute.Hash) != null)
+                        {
+                            _log.Debug($"Ignoring route, similar route already found");
+                        }
+                        else if (options.SingleRoutePerStartSystem)
+                        {
+                            // Check that a route doesn't already exist for this system
+                            var currentRouteForStartSystem = routeCollection.FirstOrDefault(r => r.StartSystem == startSystem);
+                            if (currentRouteForStartSystem != null)
+                            {
+                                if (currentRouteForStartSystem.Score >= newTradeRoute.Score)
+                                {
+                                    _log.Debug("Ignoring route, single route mode active and new route scored less than existing route");
+                                }
+                                else
+                                {
+                                    _log.Debug("New route more profitable than existing route");
+                                    routeCollection.Remove(currentRouteForStartSystem);
+                                    routeCollection.Add(newTradeRoute);
+                                }
+                            }
+                            else
+                            {
+                                routeCollection.Add(newTradeRoute);
+                            }
+                        }
                         else
                         {
                             _log.Debug("Saving route");
-                            //for (var iRun = 0; iRun < newTradeRoute.Runs.Count; iRun++) { _log.Info($"{iRun}: {newTradeRoute.Runs[iRun]}"); }
                             routeCollection.Add(newTradeRoute);
                         }
 

@@ -53,6 +53,11 @@ namespace EndlessSky.TradeRouteScanner.Common
             rootNode.Tokens.Add("FILE");
             rootNode.Tokens.Add(filepath);
 
+            return LoadDataFromFile(filepath, rootNode);
+        }
+
+        public DefNode LoadDataFromFile(string filepath, DefNode rootNode)
+        {
             using (var stream = new FileStream(filepath, FileMode.Open))
             {
                 return LoadData(stream, rootNode);

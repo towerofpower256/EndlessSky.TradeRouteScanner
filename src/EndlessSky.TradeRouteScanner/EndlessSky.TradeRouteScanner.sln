@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndlessSky.TradeRouteScanner.Common", "EndlessSky.TradeRouteScanner.Common\EndlessSky.TradeRouteScanner.Common.csproj", "{ADD4EAB3-CF36-470C-BEA7-28FE090DFEB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndlessSky.TradeRouteScanner.Common.Test", "EndlessSky.TradeRouteScanner.Common.Test\EndlessSky.TradeRouteScanner.Common.Test.csproj", "{41F2DAC5-F19C-437F-9CEA-018560E5CAA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndlessSky.TradeRouteScanner.Common.Test", "EndlessSky.TradeRouteScanner.Common.Test\EndlessSky.TradeRouteScanner.Common.Test.csproj", "{41F2DAC5-F19C-437F-9CEA-018560E5CAA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndlessSky.TradeRouteScanner.WinForms", "EndlessSky.TradeRouteScanner.WinForms\EndlessSky.TradeRouteScanner.WinForms.csproj", "{7A1AB67E-4DDF-4463-811B-04998CC2F3AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{41F2DAC5-F19C-437F-9CEA-018560E5CAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41F2DAC5-F19C-437F-9CEA-018560E5CAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41F2DAC5-F19C-437F-9CEA-018560E5CAA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A1AB67E-4DDF-4463-811B-04998CC2F3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A1AB67E-4DDF-4463-811B-04998CC2F3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A1AB67E-4DDF-4463-811B-04998CC2F3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A1AB67E-4DDF-4463-811B-04998CC2F3AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

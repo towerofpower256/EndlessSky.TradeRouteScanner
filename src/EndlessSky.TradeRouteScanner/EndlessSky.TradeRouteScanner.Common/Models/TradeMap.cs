@@ -8,5 +8,7 @@ namespace EndlessSky.TradeRouteScanner.Common.Models
     public class TradeMap
     {
         public TradeMapSystemCollection Systems { get; set; } = new TradeMapSystemCollection();
+
+        public TradeMapPlanetCollection Planets { get; set; } = new TradeMapPlanetCollection();
     }
 }

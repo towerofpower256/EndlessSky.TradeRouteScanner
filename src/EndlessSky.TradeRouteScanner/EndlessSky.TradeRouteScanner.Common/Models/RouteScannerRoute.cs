@@ -24,6 +24,8 @@ namespace EndlessSky.TradeRouteScanner.Common.Models
 
         public float Score { get; set; }
 
+        public string Hash { get; set; } // Hash summary of route. Used to try to detect if 2 routes are the same, but starting from different systems.
+
         public new string ToString()
         {
             return $"{StartSystem}, Runs:{Runs.Count}, PPR:{ProfitPerRun}, Score:{Score}";
@@ -31,6 +33,8 @@ namespace EndlessSky.TradeRouteScanner.Common.Models
 
         public void Update()
         {
+            GenerateHash();
+
             int totalProfit = 0;
             int totalJumps = 0;
             float pps = 0.0f;
@@ -57,6 +61,35 @@ namespace EndlessSky.TradeRouteScanner.Common.Models
         private void CalculateScore()
         {
             Score = ProfitPerRun - (SCORE_RUN_COUNT_PENALTY * Runs.Count);
+        }
+
+        private void GenerateHash()
+        {
+            // Generate a hash of the runs in the route.
+            // A route that has the same runs but in a different order should result in the same hash.
+
+            // Create the string
+            var runs = new List<string>();
+            foreach (var run in Runs)
+            {
+                runs.Add($"{run.StartSystemName},{run.EndSystemName},{run.Comodity}");
+            }
+            runs.Sort();
+
+            // MD5 it
+            using (var md5 = System.Security.Cryptography.MD5.Create())
+            {
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(string.Join("|", runs));
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                var sb = new StringBuilder();
+                for (int i=0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("X2"));
+                }
+
+                Hash = sb.ToString();
+            }
         }
     }
 }

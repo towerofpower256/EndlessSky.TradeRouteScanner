@@ -15,6 +15,10 @@ namespace EndlessSky.TradeRouteScanner.Common.Models
 
         public RouteScannerRunCollection Runs { get; set; } = new RouteScannerRunCollection();
 
+        public List<string> NamedObjects { get; set; } = new List<string>();
+
+        public bool CanTrade { get; set; } = false;
+
         public override string ToString()
         {
             return this.Name;
