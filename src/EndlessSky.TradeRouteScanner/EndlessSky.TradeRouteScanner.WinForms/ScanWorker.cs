@@ -46,6 +46,13 @@ namespace EndlessSky.TradeRouteScanner.WinForms
                 });
                 var map = mapBuilder.Build(rootNode);
 
+                // Check that there are systems in the map
+                if (map.Systems.Count == 0)
+                {
+                    DoProgressEvent(this, new ProgressEventArgs(ProgressEventStatus.Error, "No systems were found. Are the correct def files selected?"));
+                    return Task.FromResult(new RouteScannerResults() { Successful = false });
+                }
+
                 // Scan for runs & routes
                 var tradeScanner = new RouteScanner();
                 tradeScanner.ProgressEvents.ProgressEvent += new EventHandler<ProgressEventArgs>((sender, args) => {

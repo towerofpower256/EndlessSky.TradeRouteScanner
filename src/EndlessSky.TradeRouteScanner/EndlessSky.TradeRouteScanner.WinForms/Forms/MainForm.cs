@@ -14,6 +14,8 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
 {
     public partial class MainForm : Form
     {
+        public char STARTSYSTEMS_DELIM = ',';
+
         BindingList<string> _defFiles = new BindingList<string>();
 
         public MainForm()
@@ -21,6 +23,46 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
             InitializeComponent();
 
             lbDefFiles.DataSource = _defFiles;
+            ImportRouteScannerOptions(new RouteScannerOptions());
+        }
+
+        private void ImportRouteScannerOptions(RouteScannerOptions options)
+        {
+            txtRunMaxJumps.Text = options.RunMaxJumps.ToString();
+            txtRouteMaxStops.Text = options.RouteMaxStops.ToString();
+            txtMinProfitPerUnit.Text = options.MinProfitPerUnit.ToString();
+            txtMinRouteScore.Text = options.MinRouteScore.ToString();
+            cbSingleRoutePerStartSystem.Checked = options.SingleRoutePerStartSystem;
+            txtStartSystems.Text = string.Join(STARTSYSTEMS_DELIM.ToString(), options.StartSystems);
+        }
+
+        private RouteScannerOptions ExportRouteScannerOptions()
+        {
+            var options = new RouteScannerOptions();
+
+            options.RunMaxJumps = ParseIntField("RunMaxJumps", txtRunMaxJumps.Text);
+            options.RouteMaxStops = ParseIntField("RouteMaxStops", txtRouteMaxStops.Text);
+            options.MinProfitPerUnit = ParseIntField("MinProfitPerUnit", txtMinProfitPerUnit.Text);
+            options.MinRouteScore = ParseIntField("MinRouteScore", txtMinRouteScore.Text);
+
+            options.StartSystems.Clear();
+            options.StartSystems.AddRange(txtStartSystems.Text.Split(STARTSYSTEMS_DELIM));
+
+            options.SingleRoutePerStartSystem = cbSingleRoutePerStartSystem.Checked;
+
+            return options;
+        }
+
+        private int ParseIntField(string fieldName, string input)
+        {
+            int value;
+            if (!int.TryParse(input, out value)) throw new ArgumentOutOfRangeException(fieldName);
+            return value;
+        }
+
+        private void GenericErrorAlert(string msg, string caption)
+        {
+            MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public delegate void SetOutputDelegate(string msg);
@@ -90,12 +132,24 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
                 return;
             }
 
+            RouteScannerOptions scannerOptions;
+            try
+            {
+                scannerOptions = ExportRouteScannerOptions();
+            }
+            catch (Exception ex)
+            {
+                GenericErrorAlert($"Error reading options: {ex.GetType().Name}\n{ex.Message}", "Error reading options");
+                return;
+            }
+
             var progForm = new ProgressForm();
             progForm.Text = "Scanning for routes";
             progForm.Show(this);
 
-            var scannerOptions = new RouteScannerOptions();
-            scannerOptions.StartSystems.Add("Algorel");
+            //var scannerOptions = new RouteScannerOptions();
+            //scannerOptions.StartSystems.Add("Algorel");
+            
             var scanner = new ScanWorker(_defFiles, scannerOptions);
             scanner.ProgressEvent += new EventHandler<ProgressEventArgs>((sender, args) =>
             {
