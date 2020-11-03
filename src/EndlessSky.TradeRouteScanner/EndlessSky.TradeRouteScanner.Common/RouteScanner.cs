@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace EndlessSky.TradeRouteScanner.Common
 {
@@ -12,6 +13,8 @@ namespace EndlessSky.TradeRouteScanner.Common
         public ProgressEventSource ProgressEvents = new ProgressEventSource();
 
         ILogger _log;
+        bool _working = false;
+        CancellationToken _ct;
 
         public RouteScanner()
         {
@@ -28,14 +31,18 @@ namespace EndlessSky.TradeRouteScanner.Common
             ProgressEvents.DoEvent(this, args);
         }
 
-        public RouteScannerResults Scan(TradeMap map)
-        {
-            return Scan(map, new RouteScannerOptions());
-        }
-
         public RouteScannerResults Scan(TradeMap map, RouteScannerOptions options)
         {
+            return Scan(map, options, CancellationToken.None);
+        }
+
+        public RouteScannerResults Scan(TradeMap map, RouteScannerOptions options, CancellationToken ct)
+        {
+            if (_working) throw new InvalidOperationException("Already working");
+            _working = true;
             _log.Info("Starting route scan");
+
+            _ct = ct;
 
             var r = new RouteScannerResults();
 
@@ -48,6 +55,8 @@ namespace EndlessSky.TradeRouteScanner.Common
             //foreach (var startSystem in map.Systems)
             for (var iSS=0; iSS < map.Systems.Count; iSS++)
             {
+                ct.ThrowIfCancellationRequested();
+
                 var startSystem = map.Systems[iSS];
 
                 if (!startSystem.CanTrade) continue; // Don't care about system's that can't trade.
@@ -65,6 +74,7 @@ namespace EndlessSky.TradeRouteScanner.Common
                 // Add this system's links to the "to do" stack
                 foreach (var link in startSystem.Links)
                 {
+                    ct.ThrowIfCancellationRequested();
                     if (link.System == null) continue;
                     if (link.System == startSystem) continue; // Ignore it if it's start system
                     systemsInRange.Add(link.System);
@@ -73,11 +83,13 @@ namespace EndlessSky.TradeRouteScanner.Common
 
                 for (int jumpCount = 1; jumpCount <= options.RunMaxJumps; jumpCount++)
                 {
+                    ct.ThrowIfCancellationRequested();
                     systemCheckStackNext = new Stack<TradeMapSystem>(); // Ready to compile the next list of jumps
 
                     // Find new systems in the check stack
                     while (systemCheckStack.Count > 0)
                     {
+                        ct.ThrowIfCancellationRequested();
                         var destSystem = systemCheckStack.Pop();
 
                         // Check for profitable runs to this system
@@ -118,6 +130,7 @@ namespace EndlessSky.TradeRouteScanner.Common
             //foreach (var startSystem in map.Systems)
             for (var iSS = 0; iSS < map.Systems.Count; iSS++)
             {
+                ct.ThrowIfCancellationRequested();
                 var startSystem = map.Systems[iSS];
 
                 if (options.StartSystems.Count > 0 && !options.StartSystems.Contains(startSystem.Name))
@@ -178,6 +191,7 @@ namespace EndlessSky.TradeRouteScanner.Common
         // Walk through runs to try and find profitable circular routes that start and end in the same system
         private void ScanForRoutes(TradeMapSystem startSystem, ICollection<RouteScannerRoute> routeCollection, RouteScannerOptions options)
         {
+            ct.ThrowIfCancellationRequested();
             _log.Info($"Scanning for profitable routes starting from '{startSystem.Name}'");
             var foundRoutes = new List<RouteScannerRoute>(); // Build a list of routes found
             Stack<RouteScannerRun> tradeRunStack = new Stack<RouteScannerRun>();
@@ -196,6 +210,7 @@ namespace EndlessSky.TradeRouteScanner.Common
             // Work the queues, while there are queues to work
             while (tradeRunQueueStack.Count > 0)
             {
+                ct.ThrowIfCancellationRequested();
                 _log.Debug($"tradeRunQueueStack: {tradeRunQueueStack.Count}");
                 // Get the queue at the top of the stack
                 var tradeRunQueue = tradeRunQueueStack.Peek();
