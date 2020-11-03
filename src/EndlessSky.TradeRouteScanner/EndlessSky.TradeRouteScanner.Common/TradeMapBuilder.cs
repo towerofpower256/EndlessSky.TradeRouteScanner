@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace EndlessSky.TradeRouteScanner.Common
 {
@@ -16,24 +17,25 @@ namespace EndlessSky.TradeRouteScanner.Common
 
         public ProgressEventSource ProgressEvents = new ProgressEventSource();
 
-        public TradeMap Build(DefNode rootNode)
+        public TradeMap Build(DefNode rootNode, CancellationToken ct)
         {
+            ct.ThrowIfCancellationRequested();
+
             //ProgressEvents.DoEvent(this, new ProgressEventArgs("Starting map load"));
-            var map = CreateMap(rootNode);
+            var map = CreateMap(rootNode, ct);
 
-            // TODO handle map with no systems
-
+            ct.ThrowIfCancellationRequested();
             ProgressEvents.DoEvent(this, new ProgressEventArgs(0, 0, ProgressEventStatus.Working, $"Matching planets to systems..."));
             CheckSystemsCanTrade(map);
 
+            ct.ThrowIfCancellationRequested();
             ProgressEvents.DoEvent(this, new ProgressEventArgs(0, 0, ProgressEventStatus.Working, $"Completing links..."));
             CompleteLinks(map);
 
-            //ProgressEvents.DoEvent(this, new ProgressEventArgs(ProgressEventStatus.Complete, "Map building complete"));
             return map;
         }
 
-        public TradeMap CreateMap(DefNode rootNode)
+        public TradeMap CreateMap(DefNode rootNode, CancellationToken ct)
         {
             var map = new TradeMap();
 

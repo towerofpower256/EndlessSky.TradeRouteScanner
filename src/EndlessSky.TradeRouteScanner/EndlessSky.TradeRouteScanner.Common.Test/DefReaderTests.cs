@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EndlessSky.TradeRouteScanner.Common;
 using EndlessSky.TradeRouteScanner.Common.Models;
+using System.Threading;
 
 namespace EndlessSky.TradeRouteScanner.Common.Test
 {
@@ -17,7 +18,7 @@ namespace EndlessSky.TradeRouteScanner.Common.Test
                 );
 
 
-            var result = new DefReader().LoadDataFromString(sampleData);
+            var result = new DefReader().LoadDataFromString(sampleData, CancellationToken.None);
 
             var expectedRootNode = new DefNode();
             var l1node = new DefNode();
@@ -48,7 +49,7 @@ namespace EndlessSky.TradeRouteScanner.Common.Test
                 "node2 t1 t2"
                 );
 
-            var result = new DefReader().LoadDataFromString(sampleData);
+            var result = new DefReader().LoadDataFromString(sampleData, CancellationToken.None);
 
             var expectedResult = new DefNode();
             var node1 = new DefNode();

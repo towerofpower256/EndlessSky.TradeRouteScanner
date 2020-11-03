@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EndlessSky.TradeRouteScanner.Common;
@@ -17,6 +18,8 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
         public char STARTSYSTEMS_DELIM = ',';
 
         BindingList<string> _defFiles = new BindingList<string>();
+        CancellationTokenSource _operationCtSource;
+        Task _routeScannerTask;
 
         public MainForm()
         {
@@ -46,7 +49,11 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
             options.MinRouteScore = ParseIntField("MinRouteScore", txtMinRouteScore.Text);
 
             options.StartSystems.Clear();
-            options.StartSystems.AddRange(txtStartSystems.Text.Split(STARTSYSTEMS_DELIM));
+            var startSystemsArr = txtStartSystems.Text.Split(STARTSYSTEMS_DELIM);
+            foreach (var startSystem in startSystemsArr)
+            {
+                options.StartSystems.Add(startSystem.Trim().ToLower());
+            }
 
             options.SingleRoutePerStartSystem = cbSingleRoutePerStartSystem.Checked;
 
@@ -126,6 +133,7 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
 
         private void DoScan()
         {
+            // Validation
             if (_defFiles.Count == 0)
             {
                 MessageBox.Show("No def files to read", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -140,6 +148,13 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
             catch (Exception ex)
             {
                 GenericErrorAlert($"Error reading options: {ex.GetType().Name}\n{ex.Message}", "Error reading options");
+                return;
+            }
+
+            if (scannerOptions.StartSystems.Count == 0 && MessageBox.Show(
+                "Specifying no route start systems will scan for routes starting from ALL systems, and will take quite some time. Are you sure you want to do this?",
+                "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
+            {
                 return;
             }
 
@@ -171,10 +186,18 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
                 }
             });
 
-            bgWorkerScanner.RunWorkerAsync(scanner);
+            //bgWorkerScanner.RunWorkerAsync(scanner);
             //var results = scanner.Scan(_defFiles, new RouteScannerOptions()).ContinueWith((taskResult) => HandleScanResults(taskResult)); // TODO generate options
 
-            
+            _operationCtSource = new CancellationTokenSource();
+            progForm.OnCancel += new EventHandler<EventArgs>((sender, args) => _operationCtSource?.Cancel());
+            _routeScannerTask = new Task(() =>
+            {
+                var result = scanner.Scan(_operationCtSource.Token);
+                HandleScanResults(result);
+
+            }, _operationCtSource.Token);
+            _routeScannerTask.Start();
         }
 
         private void HandleScanResults(RouteScannerResults results)
@@ -237,15 +260,22 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
 
         private async void bgWorkerScanner_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            /*
             var scanner = ((ScanWorker)e.Argument);
+            bgWorkerScanner.Cancel
             var result = await scanner.Scan();
             e.Result = result;
+            */
         }
 
         private void bgWorkerScanner_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             HandleScanResults(e.Result as RouteScannerResults);
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _operationCtSource?.Cancel();
         }
     }
 }

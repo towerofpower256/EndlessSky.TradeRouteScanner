@@ -3,6 +3,7 @@ using System.IO;
 using EndlessSky.TradeRouteScanner.Common.Models;
 using System.Text;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace EndlessSky.TradeRouteScanner.Common
 {
@@ -47,41 +48,42 @@ namespace EndlessSky.TradeRouteScanner.Common
 
         }
 
-        public DefNode LoadDataFromFile(string filepath)
+        public DefNode LoadDataFromFile(string filepath, CancellationToken ct)
         {
             var rootNode = new DefNode();
             rootNode.Tokens.Add("FILE");
             rootNode.Tokens.Add(filepath);
 
-            return LoadDataFromFile(filepath, rootNode);
+            return LoadDataFromFile(filepath, rootNode, ct);
         }
 
-        public DefNode LoadDataFromFile(string filepath, DefNode rootNode)
+        public DefNode LoadDataFromFile(string filepath, DefNode rootNode, CancellationToken ct)
         {
             using (var stream = new FileStream(filepath, FileMode.Open))
             {
-                return LoadData(stream, rootNode);
+                return LoadData(stream, rootNode, ct);
             }
         }
 
-        public DefNode LoadDataFromString(string s)
+        public DefNode LoadDataFromString(string s, CancellationToken ct)
         {
             var rootNode = new DefNode();
 
             var bytes = Encoding.UTF8.GetBytes(s);
             var stream = new MemoryStream(bytes);
-            return LoadData(stream, rootNode);
+            return LoadData(stream, rootNode, ct);
         }
 
-        public DefNode LoadDataFromStream(Stream s)
+        public DefNode LoadDataFromStream(Stream s, CancellationToken ct)
         {
             var rootNode = new DefNode();
 
-            return LoadData(s, rootNode);
+            return LoadData(s, rootNode, ct);
         }
 
-        public DefNode LoadData(Stream dataStream, DefNode rootNode)
+        public DefNode LoadData(Stream dataStream, DefNode rootNode, CancellationToken ct)
         {
+            ct.ThrowIfCancellationRequested();
             var sr = new StreamReader(dataStream, UTF8Encoding.UTF8);
 
             int indentLevel = 0; // Indentation level
@@ -99,6 +101,8 @@ namespace EndlessSky.TradeRouteScanner.Common
             c = GetNextChar(sr);
             while (sr.Peek() >= 0)
             {
+                ct.ThrowIfCancellationRequested();
+
                 indentLevel = 0; // Reset the indent level
 
                 // Read through spaces
@@ -151,6 +155,8 @@ namespace EndlessSky.TradeRouteScanner.Common
                 // Loop for each token, or until the stream runs out
                 while (sr.Peek() >= 0)
                 {
+                    ct.ThrowIfCancellationRequested();
+
                     // Reset some things
                     quoteChar = Char.MinValue;
                     tokenBuffer = new StringBuilder();

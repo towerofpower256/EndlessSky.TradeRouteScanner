@@ -46,9 +46,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbSingleRoutePerStartSystem = new System.Windows.Forms.CheckBox();
             this.txtRunMaxJumps = new System.Windows.Forms.TextBox();
-            this.bgWorkerScanner = new System.ComponentModel.BackgroundWorker();
             this.txtStartSystems = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.bgWorkerScanner = new System.ComponentModel.BackgroundWorker();
             this.groupOutput.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlpOptions.SuspendLayout();
@@ -274,11 +274,6 @@
             this.txtRunMaxJumps.Size = new System.Drawing.Size(286, 20);
             this.txtRunMaxJumps.TabIndex = 6;
             // 
-            // bgWorkerScanner
-            // 
-            this.bgWorkerScanner.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorkerScanner_DoWork);
-            this.bgWorkerScanner.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerScanner_RunWorkerCompleted);
-            // 
             // txtStartSystems
             // 
             this.txtStartSystems.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -298,6 +293,11 @@
             this.label6.Text = "Start systems (comma separated)";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // bgWorkerScanner
+            // 
+            this.bgWorkerScanner.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorkerScanner_DoWork);
+            this.bgWorkerScanner.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerScanner_RunWorkerCompleted);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,6 +306,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MainForm";
             this.Text = "Endless Sky Trade Route Scanner";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.groupOutput.ResumeLayout(false);
             this.groupOutput.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
