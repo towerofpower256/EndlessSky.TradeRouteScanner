@@ -27,5 +27,7 @@ namespace EndlessSky.TradeRouteScanner.Common
         public int ScoreWeightPerDuplicateTrade { get; set; } = -20; // Buying / selling the same comodity at the same place affects the market negatively. Weight duplicate trades, typically to penalise them.
 
         public Collection<string> StartSystems { get; private set; } = new Collection<string>(); // List of systems to start the route scanner from
+
+        public Dictionary<string, int> MapBounds { get; private set; } = new Dictionary<string, int>();
     }
 }

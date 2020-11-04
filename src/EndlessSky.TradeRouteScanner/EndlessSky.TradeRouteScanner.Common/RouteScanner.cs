@@ -55,17 +55,50 @@ namespace EndlessSky.TradeRouteScanner.Common
             // Go through each system in the list, compare comodity prices
             // If the price is greater than the desired threshold, add it to the run list
 
-            //foreach (var startSystem in map.Systems)
-            for (var iSS=0; iSS < map.Systems.Count; iSS++)
+            TradeMapSystemCollection systemCollection;
+            List<string> validMapBoundSystems = new List<string>();
+            if (options.MapBounds.Count > 0)
+            {
+                // Gather map bounds
+                systemCollection = new TradeMapSystemCollection();
+                foreach (var system in map.Systems)
+                {
+                    foreach (var mapBound in options.MapBounds)
+                    {
+                        var mapBoundSystem = mapBound.Key.ToLower();
+                        if (mapBoundSystem == system.Name.ToLower())
+                        {
+                            validMapBoundSystems.Add(mapBoundSystem);
+                            GetSystemsInJumpRange(map, system, systemCollection, mapBound.Value);
+                            continue;
+                        }
+                    }
+                }
+
+                // Validate
+                foreach (var mapBound in options.MapBounds)
+                {
+                    if (!validMapBoundSystems.Contains(mapBound.Key.ToLower()))
+                        throw new IndexOutOfRangeException($"Map bound system name isn't a known system '{mapBound.Key}'");
+                }
+            }
+            else
+            {
+                // Do for all systems
+                systemCollection = map.Systems;
+            }
+
+
+            for (var iSS=0; iSS < systemCollection.Count; iSS++)
             {
                 ct.ThrowIfCancellationRequested();
 
-                var startSystem = map.Systems[iSS];
+                var startSystem = systemCollection[iSS];
 
                 if (!startSystem.CanTrade) continue; // Don't care about system's that can't trade.
 
                 _log.Debug($"Scanning runs for system: {startSystem.Name}");
-                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning runs for '{startSystem.Name}' ({iSS+1}/{map.Systems.Count})"));
+                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning runs for '{startSystem.Name}' ({iSS+1}/{systemCollection.Count})"));
 
                 // Clear this system's runs, in case
                 startSystem.Runs.Clear();
@@ -136,7 +169,7 @@ namespace EndlessSky.TradeRouteScanner.Common
             if (options.StartSystems.Count == 0)
             {
                 // No systems specified, do them all
-                systemsToRoute = map.Systems;
+                systemsToRoute = systemCollection;
             }
             else
             {

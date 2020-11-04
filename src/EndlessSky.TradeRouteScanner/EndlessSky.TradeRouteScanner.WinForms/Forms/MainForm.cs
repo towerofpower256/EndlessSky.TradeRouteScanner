@@ -16,6 +16,8 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
     public partial class MainForm : Form
     {
         public char STARTSYSTEMS_DELIM = ',';
+        public char MAPBOUNDS_LINE_DELIM = '\n';
+        public char MAPBOUND_PARM_DELIM = ',';
 
         BindingList<string> _defFiles = new BindingList<string>();
         CancellationTokenSource _operationCtSource;
@@ -35,8 +37,18 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
             txtRouteMaxStops.Text = options.RouteMaxStops.ToString();
             txtMinProfitPerUnit.Text = options.MinProfitPerUnit.ToString();
             txtMinRouteScore.Text = options.MinRouteScore.ToString();
+            txtScoreWeightPerRun.Text = options.ScoreWeightPerRun.ToString();
+            txtScoreWeightPerDuplicateTrade.Text = options.ScoreWeightPerDuplicateTrade.ToString();
             cbSingleRoutePerStartSystem.Checked = options.SingleRoutePerStartSystem;
+            cbAllowSameStopBuySell.Checked = options.AllowSameStopBuySell;
             txtStartSystems.Text = string.Join(STARTSYSTEMS_DELIM.ToString(), options.StartSystems);
+
+            var mapBoundsSb = new StringBuilder();
+            foreach (var bound in options.MapBounds)
+            {
+                mapBoundsSb.Append($"{bound.Key},{bound.Value}");
+            }
+            txtMapBounds.Text = mapBoundsSb.ToString();
         }
 
         private RouteScannerOptions ExportRouteScannerOptions()
@@ -47,15 +59,41 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
             options.RouteMaxStops = ParseIntField("RouteMaxStops", txtRouteMaxStops.Text);
             options.MinProfitPerUnit = ParseIntField("MinProfitPerUnit", txtMinProfitPerUnit.Text);
             options.MinRouteScore = ParseIntField("MinRouteScore", txtMinRouteScore.Text);
+            options.ScoreWeightPerRun = ParseIntField("ScoreWeightPerRun", txtScoreWeightPerRun.Text);
+            options.ScoreWeightPerDuplicateTrade = ParseIntField("ScoreWeightPerDuplicateTrade", txtScoreWeightPerDuplicateTrade.Text);
 
             options.StartSystems.Clear();
             var startSystemsArr = txtStartSystems.Text.Split(STARTSYSTEMS_DELIM);
             foreach (var startSystem in startSystemsArr)
             {
-                options.StartSystems.Add(startSystem.Trim().ToLower());
+                var startSystemName = startSystem.Trim().ToLower();
+                if (!string.IsNullOrEmpty(startSystemName)) options.StartSystems.Add(startSystemName);
             }
 
             options.SingleRoutePerStartSystem = cbSingleRoutePerStartSystem.Checked;
+            options.AllowSameStopBuySell = cbAllowSameStopBuySell.Checked;
+
+            options.MapBounds.Clear();
+            var mapBoundsArr = txtMapBounds.Text.Split(MAPBOUNDS_LINE_DELIM);
+            foreach (var mapBoundLine in mapBoundsArr)
+            {
+                if (string.IsNullOrEmpty(mapBoundLine.Trim())) continue; // Skip empty line
+
+                var errMsg = $"Couldn't read map bound line '{mapBoundLine}'";
+
+                var mapBoundSplit = mapBoundLine.Split(MAPBOUND_PARM_DELIM);
+                if (mapBoundSplit.Length != 2) throw new ArgumentOutOfRangeException("mapBoundLine", errMsg);
+
+                var mapBoundSystem = mapBoundSplit[0].Trim();
+                if (string.IsNullOrEmpty(mapBoundSplit[0].Trim())) throw new ArgumentOutOfRangeException("mapBoundSystem", errMsg);
+                
+                int mapBoundRange;
+                if (!int.TryParse(mapBoundSplit[1].Trim(), out mapBoundRange)) throw new ArgumentOutOfRangeException("mapBoundRange", errMsg);
+                if (mapBoundRange < 0) mapBoundRange = 0;
+
+                // Save it
+                options.MapBounds.Add(mapBoundSystem, mapBoundRange);
+            }
 
             return options;
         }
@@ -63,7 +101,7 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
         private int ParseIntField(string fieldName, string input)
         {
             int value;
-            if (!int.TryParse(input, out value)) throw new ArgumentOutOfRangeException(fieldName);
+            if (!int.TryParse(input, out value)) throw new ArgumentOutOfRangeException(fieldName, $"Could not convert {fieldName} '{input}' to a whole number");
             return value;
         }
 
@@ -151,8 +189,8 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
                 return;
             }
 
-            if (scannerOptions.StartSystems.Count == 0 && MessageBox.Show(
-                "Specifying no route start systems will scan for routes starting from ALL systems, and will take quite some time. Are you sure you want to do this?",
+            if (scannerOptions.StartSystems.Count == 0 && scannerOptions.MapBounds.Count == 0 && MessageBox.Show(
+                "Specifying no route start systems and no map bounds will scan for routes across the entire map, and will take quite some time. Are you sure you want to do this?",
                 "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
             {
                 return;
