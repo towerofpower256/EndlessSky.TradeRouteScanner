@@ -47,11 +47,6 @@ namespace EndlessSky.TradeRouteScanner.Common
 
             _options = options;
 
-            // DEBUG
-            var inRange1 = GetSystemsInJumpRange(map, map.Systems.FirstOrDefault(s => s.Name == "Wezen"), new TradeMapSystemCollection(), 2);
-            var inRange2 = GetSystemsInJumpRange(map, map.Systems.FirstOrDefault(s => s.Name == "Wezen"), new TradeMapSystemCollection(), 5);
-            var inRange3 = GetSystemsInJumpRange(map, map.Systems.FirstOrDefault(s => s.Name == "Naos"), inRange2, 5);
-
             var r = new RouteScannerResults();
 
             // Build a list of profitable runs
