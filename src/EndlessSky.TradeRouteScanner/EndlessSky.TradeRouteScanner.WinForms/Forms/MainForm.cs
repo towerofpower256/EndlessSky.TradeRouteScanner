@@ -231,6 +231,14 @@ namespace EndlessSky.TradeRouteScanner.WinForms.Forms
                     {
                         sb.AppendLine($"{run.StartSystemName} -> {run.EndSystem} ({run.Jumps} jumps), {run.Comodity} ${run.Profit} profit");
                     }
+                    if (route.ScoreTrail.Count > 0)
+                    {
+                        sb.AppendLine("== Score breakdown");
+                        foreach (var s in route.ScoreTrail)
+                        {
+                            sb.AppendLine(s);
+                        }
+                    }
                     i++;
                 }
 

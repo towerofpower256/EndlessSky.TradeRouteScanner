@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using EndlessSky.TradeRouteScanner.Common.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -45,7 +46,7 @@ namespace EndlessSky.TradeRouteScanner.Common.Test
             sampleDataSystem3.ChildNodes.Add(new DefNode() { Tokens = new DefTokenCollection().Add("trade").Add("Equipment").Add("485") });
             sampleDataSystem3.ChildNodes.Add(new DefNode() { Tokens = new DefTokenCollection().Add("trade").Add("Food").Add("335") });
 
-            var resultMap = new TradeMapBuilder().Build(sampleDataRoot);
+            var resultMap = new TradeMapBuilder().Build(sampleDataRoot, CancellationToken.None);
 
             var expectedMap = new TradeMap();
 
@@ -86,7 +87,7 @@ namespace EndlessSky.TradeRouteScanner.Common.Test
         {
             var sampleDataStream = TestUtils.LoadResourceStream("TestData.MapBuilder_FullMapRead.txt");
             var dataRoot = new DefReader().LoadDataFromStream(sampleDataStream);
-            var mapResult = new TradeMapBuilder().Build(dataRoot);
+            var mapResult = new TradeMapBuilder().Build(dataRoot, CancellationToken.None);
         }
     }
 }

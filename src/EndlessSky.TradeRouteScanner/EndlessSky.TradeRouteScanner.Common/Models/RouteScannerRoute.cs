@@ -26,11 +26,14 @@ namespace EndlessSky.TradeRouteScanner.Common.Models
 
         public string Hash { get; set; } // Hash summary of route. Used to try to detect if 2 routes are the same, but starting from different systems.
 
+        public List<string> ScoreTrail { get; set; } = new List<string>();
+
         public new string ToString()
         {
             return $"{StartSystem}, Runs:{Runs.Count}, PPR:{ProfitPerRun}, Score:{Score}";
         }
 
+        /*
         public void Update()
         {
             GenerateHash();
@@ -91,5 +94,6 @@ namespace EndlessSky.TradeRouteScanner.Common.Models
                 Hash = sb.ToString();
             }
         }
+        */
     }
 }

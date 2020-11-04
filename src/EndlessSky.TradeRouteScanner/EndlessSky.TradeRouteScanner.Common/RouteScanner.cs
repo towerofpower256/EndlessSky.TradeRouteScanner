@@ -15,6 +15,7 @@ namespace EndlessSky.TradeRouteScanner.Common
         ILogger _log;
         bool _working = false;
         CancellationToken _ct;
+        RouteScannerOptions _options;
 
         public RouteScanner()
         {
@@ -44,6 +45,13 @@ namespace EndlessSky.TradeRouteScanner.Common
 
             _ct = ct;
 
+            _options = options;
+
+            // DEBUG
+            var inRange1 = GetSystemsInJumpRange(map, map.Systems.FirstOrDefault(s => s.Name == "Wezen"), new TradeMapSystemCollection(), 2);
+            var inRange2 = GetSystemsInJumpRange(map, map.Systems.FirstOrDefault(s => s.Name == "Wezen"), new TradeMapSystemCollection(), 5);
+            var inRange3 = GetSystemsInJumpRange(map, map.Systems.FirstOrDefault(s => s.Name == "Naos"), inRange2, 5);
+
             var r = new RouteScannerResults();
 
             // Build a list of profitable runs
@@ -62,7 +70,7 @@ namespace EndlessSky.TradeRouteScanner.Common
                 if (!startSystem.CanTrade) continue; // Don't care about system's that can't trade.
 
                 _log.Debug($"Scanning runs for system: {startSystem.Name}");
-                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning runs for '{startSystem.Name}' ({iSS}/{map.Systems.Count})"));
+                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning runs for '{startSystem.Name}' ({iSS+1}/{map.Systems.Count})"));
 
                 // Clear this system's runs, in case
                 startSystem.Runs.Clear();
@@ -127,19 +135,32 @@ namespace EndlessSky.TradeRouteScanner.Common
 
             // Scan for routes
             _log.Info("Starting scan for routes");
-            //foreach (var startSystem in map.Systems)
-            for (var iSS = 0; iSS < map.Systems.Count; iSS++)
+
+            TradeMapSystemCollection systemsToRoute;
+
+            if (options.StartSystems.Count == 0)
+            {
+                // No systems specified, do them all
+                systemsToRoute = map.Systems;
+            }
+            else
+            {
+                // Systems are specified.
+                // Resolve them to systems
+                systemsToRoute = new TradeMapSystemCollection();
+                foreach (var system in map.Systems)
+                {
+                    if (options.StartSystems.Contains(system.Name.ToLower()))
+                        systemsToRoute.Add(system);
+                }
+            }
+
+            for (var iSS = 0; iSS < systemsToRoute.Count; iSS++)
             {
                 ct.ThrowIfCancellationRequested();
-                var startSystem = map.Systems[iSS];
+                var startSystem = systemsToRoute[iSS];
 
-                if (options.StartSystems.Count > 0 && !options.StartSystems.Contains(startSystem.Name.Trim().ToLower()))
-                {
-                    _log.Debug("Skipping system, not in list of desired start systems");
-                    continue;
-                }
-
-                DoProgress(new ProgressEventArgs(iSS, map.Systems.Count, ProgressEventStatus.Working, $"Scanning routes for '{startSystem.Name}' ({iSS}/{map.Systems.Count})"));
+                DoProgress(new ProgressEventArgs(iSS, systemsToRoute.Count, ProgressEventStatus.Working, $"Scanning routes for '{startSystem.Name}' ({iSS+1}/{systemsToRoute.Count})"));
                 ScanForRoutes(startSystem, r.AllRoutes, options);
             }
 
@@ -265,7 +286,7 @@ namespace EndlessSky.TradeRouteScanner.Common
                             newTradeRoute.StartSystem = startSystem;
                             newTradeRoute.Runs.Add(run);
                         }
-                        newTradeRoute.Update();
+                        UpdateRoute(newTradeRoute);
 
                         if (newTradeRoute.Score < options.MinRouteScore)
                         {
@@ -315,16 +336,24 @@ namespace EndlessSky.TradeRouteScanner.Common
                         _log.Debug($"{tradeRunStack.Count} is under the stop limit {options.RouteMaxStops}, enqueuing this stop's trade runs");
                         // Add a new trade run queue to the queue stack
                         newQueueStack = new Stack<RouteScannerRun>();
-                        foreach (var run in thisRun.EndSystem.Runs)
+                        foreach (var nextRun in thisRun.EndSystem.Runs)
                         {
-                            _log.Debug($"Enqueuing run: {run}");
-                            newQueueStack.Push(run);
+                            if (!options.AllowSameStopBuySell && nextRun.Comodity == thisRun.Comodity)
+                            {
+                                // Don't buy the comodity that you just sold
+                                _log.Debug("Skipping this run, don't buy what was just sold");
+                                continue;
+                            }
+
+                            _log.Debug($"Enqueuing run: {nextRun}");
+                            newQueueStack.Push(nextRun);
                         }
+
                         if (newQueueStack.Count > 0)
                             tradeRunQueueStack.Push(newQueueStack);
                         else
                         {
-                            _log.Debug("This system doesn't have any runs, nothing enqueued");
+                            _log.Debug("No more runs from this system");
                             tradeRunStack.Pop();
                             continue;
                         }
@@ -336,6 +365,150 @@ namespace EndlessSky.TradeRouteScanner.Common
                     }
                 }
             } // End of worker loop
+        }
+
+        private RouteScannerRoute UpdateRoute(RouteScannerRoute route)
+        {
+            UpdateRouteHash(route);
+
+            int totalProfit = 0;
+            int totalJumps = 0;
+            float pps = 0.0f;
+            float ppj = 0.0f;
+            foreach (var run in route.Runs)
+            {
+                totalProfit += run.Profit;
+                totalJumps += run.Jumps;
+            }
+
+            pps = totalProfit / route.Runs.Count;
+            ppj = totalProfit / totalJumps;
+
+            route.TotalProfit = totalProfit;
+            route.TotalJumps = totalJumps;
+            route.ProfitPerRun = pps;
+            route.ProfitPerJump = ppj;
+
+            UpdateRouteScore(route);
+
+
+            return route;
+        }
+
+        private RouteScannerRoute UpdateRouteScore(RouteScannerRoute route)
+        {
+            route.ScoreTrail.Clear();
+
+            // Start the score with the profit per run
+            float score = route.ProfitPerRun;
+            route.ScoreTrail.Add($"Base score: {score}");
+
+            // Apply weight per run
+            // Use an exponential type equasion. A little more is a little weight, a lot more is a LOT of weight.
+            int runCountWeight = (route.Runs.Count * _options.ScoreWeightPerRun) * route.Runs.Count;
+            score += runCountWeight;
+            route.ScoreTrail.Add($"Route length score: {runCountWeight}");
+
+            // Apply weight per duplicate trades
+            int duplicateTradeCount = 0;
+            var seenTrades = new List<string>();
+            foreach (var run in route.Runs)
+            {
+                var buyTrade = $"b;{run.StartSystemName};{run.Comodity}";
+                var sellTrade = $"s;{run.EndSystemName};{run.Comodity}";
+
+                if (seenTrades.Contains(buyTrade))
+                    duplicateTradeCount++;
+                else
+                    seenTrades.Add(buyTrade);
+
+                if (seenTrades.Contains(sellTrade))
+                    duplicateTradeCount++;
+                else
+                    seenTrades.Add(sellTrade);
+            }
+            int duplicateTradeWeight = duplicateTradeCount * _options.ScoreWeightPerDuplicateTrade;
+            score += duplicateTradeWeight;
+            route.ScoreTrail.Add($"Repeat trade score: {duplicateTradeWeight}");
+
+            route.Score = score;
+
+            return route;
+        }
+
+        private RouteScannerRoute UpdateRouteHash(RouteScannerRoute route)
+        {
+            // Generate a hash of the runs in the route.
+            // A route that has the same runs but in a different order should result in the same hash.
+
+            // Create the string
+            var runs = new List<string>();
+            foreach (var run in route.Runs)
+            {
+                runs.Add($"{run.StartSystemName},{run.EndSystemName},{run.Comodity}");
+            }
+            runs.Sort();
+
+            // MD5 it
+            using (var md5 = System.Security.Cryptography.MD5.Create())
+            {
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(string.Join("|", runs));
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                var sb = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("X2"));
+                }
+
+                route.Hash = sb.ToString();
+            }
+
+            return route;
+        }
+
+        private TradeMapSystemCollection GetSystemsInJumpRange(TradeMap map, TradeMapSystem startSystem, TradeMapSystemCollection systemCollection, int jumpRange)
+        {
+            // Traverse outwards from the start system using links.
+            // Build a collection of systems within the specified jump radius from the start system
+
+            TradeMapSystemCollection seenSystems = new TradeMapSystemCollection();
+            if (!systemCollection.Contains(startSystem)) systemCollection.Add(startSystem);
+            Stack<TradeMapSystem> systemStack = new Stack<TradeMapSystem>();
+            systemStack.Push(startSystem);
+            Stack<TradeMapSystem> nextSystemStack;
+
+            int jumpCount = 1;
+            while (jumpCount <= jumpRange && systemStack.Count > 0)
+            {
+                // Start the next stack
+                nextSystemStack = new Stack<TradeMapSystem>();
+
+                // Add all of the linked systems
+                while (systemStack.Count > 0)
+                {
+                    var thisSystem = systemStack.Pop();
+                    if (seenSystems.Contains(thisSystem)) continue;
+
+                    foreach (var link in thisSystem.Links)
+                    {
+                        if (link.System == null) continue;
+                        if (link.System == startSystem) continue; // Ignore it if it's start system
+
+                        // Good link
+                        nextSystemStack.Push(link.System);
+                        if (!systemCollection.Contains(link.System)) systemCollection.Add(link.System);
+                        seenSystems.Add(thisSystem);
+                    }
+                }
+
+                // Done with stack, ready the next stack
+                systemStack = nextSystemStack;
+
+                jumpCount++;
+            }
+
+            return systemCollection;
         }
     }
 }
